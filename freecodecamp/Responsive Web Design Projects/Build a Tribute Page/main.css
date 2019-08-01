@@ -18,10 +18,10 @@ body {
 
 #img-div {
 	max-width: 270px;
-	margin-top: 160px;
+	margin-top: 130px;
 }
 
-#img {
+#image {
 	max-width: 100%;
 	height: auto;
 	display: block;
@@ -39,11 +39,14 @@ body {
 	max-width: 320px;
 }
 
-#logo-img {
+#logo-image {
 	max-width: 100%;
 	height: auto;
 	display: block;
-	
+}
+#img-caption {
+	text-align: center;
+	margin: 0;
 }
 
 #title {
