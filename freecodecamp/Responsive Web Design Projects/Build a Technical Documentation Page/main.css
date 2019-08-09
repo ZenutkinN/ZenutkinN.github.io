@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--ubuntu: 'Ubuntu', sans-serif;
+	--roboto: 'Roboto', sans-serif;
+	--yellow: #FFD532;
+	--grey: #343434;
+	--width-nav-bar: 300px;
+}
+
+html {
+	font-size: 10px;
+}
+body {
+	position: relative;
+}
+
+header {
+	font-family: var(--ubuntu);
+	font-weight: 400;
+	font-size: 2.5rem;
+
+	margin: 20px 0 20px 0;
+	
+}
+
+#navbar {
+	position: fixed;
+	left: 0;
+	top: 0;
+
+	width: var(--width-nav-bar);
+	height: 100vh;
+
+	background: var(--yellow);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, .19), 0 6px 6px rgba(0, 0, 0, .23);  
+}
+
+#navbar > header {
+	width: 100%;
+	
+	text-align: center;
+	color: var(--grey);
+}
+
+#nav-list > li {
+	list-style-type: none;
+
+	width: 80%;
+	margin: 0 auto;
+
+	border-top: 1px solid  #343434;
+}
+.nav-link {
+	display: block;
+	padding: 0 10px 0 10px;
+
+	font-family: var(--roboto);
+	font-size: 1.6rem;
+	font-weight: 300;
+
+	line-height: 4rem;
+	text-decoration: none;
+
+	color: var(--grey);
+
+	transition: all .3s ease;
+}
+.nav-link > a:hover {
+	color: var(--yellow);
+	background: var(--grey);
+}
+
+#main-doc {
+	margin-left: var(--width-nav-bar);
+	
+}
+.main-section {
+	margin: 0 5vw 0 5vw;
+}
+.main-section > p, .main-section > code {
+	font-family: var(--roboto);
+	font-size: 1.8rem;
+	font-weight: 300;
+
+	text-indent: 50px;
+	text-align: justify;
+	line-height: 3rem;
+
+	margin-bottom: 30px;
+}
+.main-section > p > a {
+	color: var(--yellow);
+}
+.main-section > code {
+	display: block;
+	
+	white-space: pre-line;
+	background: rgba(255, 213, 50, .5);
+
+	margin-left: 50px;
+	margin-right: 50px;
+	padding-left: 5vw;
+	padding-bottom: 25px;
+	border-radius: 10px;
+
+	font-size: 1.5rem;
+}
+.main-section > ul {
+	font-family: var(--roboto);
+	font-size: 1.8rem;
+	font-weight: 300;
+
+	text-align: justify;
+	line-height: 3rem;
+	margin: 0 50px 30px 50px;
+
+}
+.main-section > ul > li {
+	margin-bottom: 10px;
+}
+.main-section > ul > li > ul {
+	margin-left: 50px;
+}
+
+.main-section {
+	display: none;
+}
+.main-section:target {
+	display: block;
+}
+@media (max-width: 900px) {
+	#navbar {
+		max-height: 300px;
+		width: 100vw;
+		border: 1px solid var(--yellow);
+		top: 0;
+	}
+	#nav-list {
+		overflow-y: auto;
+		height: 200px;
+	}
+	#main-doc {
+		margin: 350px 0px 0 0px;
+	}
+	.main-section{
+		margin: 0 20px 0 20px;
+	}
+	.main-section > header {
+		text-align: center;
+	}
+	.main-section > code {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
