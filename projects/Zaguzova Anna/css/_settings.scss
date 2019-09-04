@@ -77,10 +77,9 @@ p {
     
     ul {
         @extend .flex;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
         list-style-type: none;
-        position: relative;
         transform: all 1s ease;
         margin-top: 3vh;
 
@@ -128,7 +127,6 @@ p {
             transition: all 1s ease;
             @media screen and (max-width: 1024px) {
                 display: none;
-                
             }
         
 
