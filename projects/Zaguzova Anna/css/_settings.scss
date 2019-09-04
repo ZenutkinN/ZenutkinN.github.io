@@ -126,6 +126,10 @@ p {
         .hiden {
             opacity: 0;
             transition: all 1s ease;
+            @media screen and (max-width: 1024px) {
+                display: none;
+                
+            }
         
 
         }
@@ -150,6 +154,7 @@ p {
                 }
                 @media screen and (max-width: 1024px) {
                     transform: translateX(0);
+                    
                 }
             }
             

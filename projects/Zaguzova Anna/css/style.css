@@ -173,6 +173,12 @@ p {
   transition: all 1s ease;
 }
 
+@media screen and (max-width: 1024px) {
+  .nav ul .hiden {
+    display: none;
+  }
+}
+
 .nav ul:hover .logo {
   -webkit-transform: translateX(-8vw);
           transform: translateX(-8vw);
