@@ -145,21 +145,15 @@ p {
   width: 5vw;
 }
 
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 1280px) {
   .nav ul .logo {
-    width: 6vw;
+    width: 10%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .nav ul .logo {
-    width: 10vw;
-  }
-}
-
-@media screen and (max-width: 414px) {
-  .nav ul .logo {
-    width: 22vw;
+    width: 15%;
   }
 }
 
