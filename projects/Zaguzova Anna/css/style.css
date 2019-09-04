@@ -92,14 +92,6 @@ p {
 
 @media screen and (max-width: 1366px) {
   .nav {
-    -ms-grid-column: 2;
-        grid-column-start: 2;
-    grid-column-end: 6;
-  }
-}
-
-@media screen and (max-width: 414px) {
-  .nav {
     -ms-grid-column: 1;
         grid-column-start: 1;
     grid-column-end: 7;

@@ -71,11 +71,6 @@ p {
     grid-column-end: 5;
     margin-top: 3vh;
     @media screen and (max-width: 1366px) {
-        grid-column-start: 2;
-        grid-column-end: 6;
-    }
-    
-    @media screen and (max-width: 414px) {
         grid-column-start: 1;
         grid-column-end: 7;
     }
