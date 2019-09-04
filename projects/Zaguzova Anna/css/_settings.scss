@@ -1,0 +1,314 @@
+@charset "UTF-8";
+
+$pageMargin: 5vw;
+
+html {
+    font-size: 32px;
+    
+} 
+html, body {
+    padding: 0px;
+    margin: 0px;
+    height: 100vh;  
+} 
+
+h1, h2, h3, h4, p, ul, a {
+    padding: 0px;
+    margin: 0px;
+    color: black;
+}
+h1 {
+    font-family: 'Inconsolata', monospace;
+    letter-spacing: 5px;
+}
+h2 {
+    font-family: 'Montserrat', sans-serif;
+}
+a {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+p {
+    font-family: 'Roboto', sans-serif;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 4vw;
+    grid-row-gap: 1vh;
+    max-width: 80%;
+    margin: 0px auto;
+}
+.yearProject {
+    grid-column: 1 / 5;
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2vh;
+    @media screen and (max-width: 1366px) {
+        grid-column: 1 / 4;
+    }
+    @media screen and (max-width: 414px) {
+        grid-column: 1 / 1;
+    }
+    h2 {
+        
+        font-weight: 300;
+    }   
+}
+
+
+// NAVIGATION HANDLE
+
+.nav {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    margin-top: 3vh;
+    @media screen and (max-width: 1366px) {
+        grid-column-start: 2;
+        grid-column-end: 6;
+    }
+    
+    @media screen and (max-width: 414px) {
+        grid-column-start: 1;
+        grid-column-end: 7;
+    }
+    
+    ul {
+        @extend .flex;
+        justify-content: space-evenly;
+        align-items: center;
+        list-style-type: none;
+        position: relative;
+        transform: all 1s ease;
+        margin-top: 3vh;
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 200;
+            font-size: 2vh;
+            @media screen and (max-width: 1024px) {
+                font-size: .7rem;
+            }
+            @media screen and (max-width: 768px) {
+                font-size: .6rem;
+            }
+            @media screen and (max-width: 414px) {
+                font-size: .4rem;
+                
+            }
+        
+            
+        }
+
+        .logo {
+            position: absolute;
+            transition: all 1s ease;
+            width: 5vw;
+            @media screen and (max-width: 1366px) {
+                width: 6vw;
+            }
+            @media screen and (max-width: 1024px) {
+                width: 10vw;
+            }
+            @media screen and (max-width: 414px) {
+                width: 22vw;
+            }
+            a img {
+                width: 100%;
+            }
+            
+        }
+
+        .hiden {
+            opacity: 0;
+            transition: all 1s ease;
+        
+
+        }
+
+        &:hover {
+            .logo {
+                transform: translateX(-8vw);
+                @media screen and (max-width: 1366px) {
+                    transform: translateX(-16vw);
+                }
+
+            }
+
+            .hiden {
+                opacity: 1;
+                transform: translateX(6vw);
+                @media screen and (max-width: 1366px) {
+                    transform: translateX(9vw);
+                }
+            }
+        }
+    }
+    .less1024px {
+        display: none;
+        margin-top: 10%;
+        
+        @media screen and (max-width: 1024px) {
+            display: flex;
+        }
+    }
+}
+
+// CLASS SIGN
+
+.sign {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    
+    
+    @media screen and (max-width: 414px) {
+        grid-column-start: 1;
+        grid-column-end: 7;
+        text-align: center;
+        margin: 6vh 0 6vh 4vw;
+
+    }
+    
+    
+    h1 {
+        color: black;
+        text-transform: uppercase;
+        word-wrap: break-word;
+        font-size: 8vh;
+        letter-spacing: 4vw;
+        font-weight: 400;
+        margin: 5vh 0;
+        @media screen and (max-width: 1366px) {
+            font-size: 1.8rem;
+            margin: 4vh 0;
+        }
+        @media screen and (max-width: 1024px) {
+            font-size: 1.5rem;
+        }
+        @media screen and (max-width: 768px) {
+            font-size: 2rem;
+            margin: 3vh 0;
+        }
+
+        
+        
+        
+    }
+}
+
+// LINK HANDLE
+
+.menuLink {
+    position: relative;
+}
+
+.menuLink::before, .menuLink::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: black;
+    opacity: .4;
+
+    transition: all .5s;
+    
+}
+
+.menuLink::before {
+    top: 0;
+    left: -30%;
+}
+
+.menuLink::after {
+    bottom: 0;
+    right: -30%;
+}
+
+.menuLink:hover::before {
+    height: 200%;
+    transform: rotate(-90deg);
+    top: -100%;
+    left: 50%;
+    opacity: 1;
+    
+}
+
+.menuLink:hover::after {
+    height: 200%;
+    transform: rotate(-90deg);
+    bottom: -120%;
+    right: 50%;
+    opacity: 1;
+    
+}
+
+// BACKGROUND SLIDER
+
+.backgroundSlider {
+    background: no-repeat center 0 / cover;
+    
+    transition-property: background;
+    transition-duration: 2s;
+}
+
+// TABLETS HANDEL
+
+.targetTablets {
+    position: relative;
+    
+    > div {
+        position: absolute;
+        transition: all 1s .3s ease;
+        opacity: 0;
+        z-index: 1;
+        margin-bottom: 4vw;
+        
+        &:first-child {
+            opacity: 1;
+            z-index: 2;
+        }
+    }
+}
+
+.tabletsHandle {
+    > a {
+        > img {
+            width: 100%;
+            transition: all .5s ease;
+            &:hover {
+                box-shadow: 0px 2px 8px black;
+                transform: scale(1.02);
+            }
+        }
+    }
+}
+
+
+// HORIZONTAL LINE 
+
+.horLine {
+    grid-column-start: 4;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    border-top: 1px solid black;
+    margin: 2vw 0;
+    @media screen and (max-width: 1024px) {
+        grid-column-start: 3;
+    }
+    @media screen and (max-width: 414px) {
+        grid-column-start: 1;
+        grid-column-end: 7;
+    }
+}
