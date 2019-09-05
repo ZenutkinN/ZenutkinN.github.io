@@ -624,12 +624,12 @@ p {
 }
 
 #contact .describe .email > p {
-  top: 5vh;
+  top: 55px;
 }
 
 @media screen and (max-width: 414px) {
   #contact .describe .email > p {
-    top: 7vh;
+    top: 50px;
   }
 }
 
@@ -640,7 +640,7 @@ p {
   -ms-grid-row: 4;
       grid-row-start: 4;
   grid-row-end: 5;
-  margin-top: 6vh;
+  margin-top: 40px;
 }
 
 @media screen and (max-width: 1366px) {
