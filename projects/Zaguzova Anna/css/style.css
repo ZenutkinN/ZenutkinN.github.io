@@ -99,9 +99,9 @@ p {
 }
 
 .nav ul {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -116,7 +116,7 @@ p {
   color: black;
   font-family: 'Montserrat', sans-serif;
   font-weight: 200;
-  font-size: 2vh;
+  font-size: .6rem;
 }
 
 @media screen and (max-width: 1024px) {
@@ -141,7 +141,9 @@ p {
   position: absolute;
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
-  width: 5vw;
+  width: 100px;
+  left: 50%;
+  margin-left: -50px;
 }
 
 @media screen and (max-width: 1366px) {
