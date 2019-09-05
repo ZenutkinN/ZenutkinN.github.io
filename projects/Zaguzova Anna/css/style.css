@@ -817,16 +817,16 @@ p {
 .works .tablets .target {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-columns: 1fr 3vw 1fr 3vw 1fr 3vw 1fr;
+  grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 3vw;
   grid-row-gap: 3vw;
 }
 
 @media screen and (max-width: 1366px) {
   .works .tablets .target {
-    -ms-grid-columns: (1fr)[3];
-        grid-template-columns: repeat(3, 1fr);
+    -ms-grid-columns: 1fr [3];
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -839,8 +839,8 @@ p {
 
 @media screen and (max-width: 414px) {
   .works .tablets .target {
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-columns: 1fr [2];
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
