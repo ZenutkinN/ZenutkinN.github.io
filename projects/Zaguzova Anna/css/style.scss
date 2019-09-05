@@ -304,7 +304,7 @@
         grid-row-start: 3;
         grid-row-end: 4;
         margin-right: $pageMargin;
-        @media screen and (max-width: 1200px) {
+        @media screen and (max-width: 1024px) {
             grid-row-start: 4;
             grid-row-end: 5;
             grid-column-start: 1;
@@ -325,10 +325,10 @@
             }
             @media screen and (max-width: 1024px) {
                 grid-column-gap: 4vw;
-                grid-row-gap: 4vw;
+                grid-row-gap: 50px;
             }
             @media screen and (max-width: 414px) {
-                grid-template-columns: repeat(1, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
             @extend .tabletsHandle;
 
@@ -374,16 +374,16 @@
         }
         h1 {
             letter-spacing: .2rem;
-            font-family: 'Inconsolata', monospace;
+            font-family: 'Inconsolata', sans-serif;
             font-size: 1.5rem;
             margin-top: 50px;
             margin-bottom: 0;
             @media screen and (max-width: 1024px) {
-                font-size: 1.2rem;
+                font-size: 1rem;
                 letter-spacing: .3rem
             }
             @media screen and (max-width: 414px) {
-                font-size: .7rem;
+                font-size: .6rem;
                 letter-spacing: .2rem;
                 margin-top: 5px;
                 
