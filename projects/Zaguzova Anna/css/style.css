@@ -408,7 +408,7 @@ p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 100vh;
+  height: 100%;
   background: rgba(0, 0, 0, 0.7);
   border: 15px solid white;
   -webkit-box-sizing: border-box;
