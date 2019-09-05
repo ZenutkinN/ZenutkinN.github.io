@@ -201,6 +201,7 @@ p {
 .nav .less1024px {
   display: none;
   margin-top: 50px;
+  border: 1px solid transparent;
 }
 
 .nav .less1024px a {
