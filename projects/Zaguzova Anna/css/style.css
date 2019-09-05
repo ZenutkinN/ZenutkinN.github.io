@@ -35,7 +35,7 @@ p {
   font-family: 'Roboto', sans-serif;
 }
 
-.flex, .nav ul, #main, #main .head, #main .centr, #main .centr nav, #contact .describe .phoneNumber, #contact .describe .email, #contact .social > ul, .projects .gallery, .blog .news, .blog .news .article .imgBlog {
+.flex, .nav ul, #main, #main .head, #main .centr, #main .centr nav, #contact .social > ul, .projects .gallery, .blog .news, .blog .news .article .imgBlog {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -140,7 +140,6 @@ p {
   width: 100px;
   left: 50%;
   margin-left: -50px;
-  border: 11px solid transparent;
 }
 
 @media screen and (max-width: 414px) {
@@ -209,14 +208,8 @@ p {
 }
 
 .nav .less1024px a {
-  margin: 0 60px;
+  margin: 100px 40px 0 40px;
   display: block;
-}
-
-@media screen and (max-width: 414px) {
-  .nav .less1024px a {
-    margin: 50px 40px 0 40px;
-  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -533,12 +526,11 @@ p {
 }
 
 #contact .describe {
-  -ms-grid-column: 2;
-      grid-column-start: 2;
-  grid-column-end: 6;
   -ms-grid-row: 3;
-      grid-row-start: 3;
-  grid-row-end: 4;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 4;
+  grid-area: 3 / 2 / 4 / 6;
   margin-bottom: 6vh;
 }
 
@@ -586,20 +578,8 @@ p {
   }
 }
 
-#contact .describe .email {
-  margin-top: 7vh;
-}
-
 #contact .describe .phoneNumber, #contact .describe .email {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-@media screen and (max-width: 414px) {
-  #contact .describe .phoneNumber, #contact .describe .email {
-    margin-top: 7vh;
-  }
+  position: relative;
 }
 
 #contact .describe .phoneNumber:hover p:nth-child(1), #contact .describe .email:hover p:nth-child(1) {
@@ -617,6 +597,10 @@ p {
   -webkit-transition-duration: 2s;
           transition-duration: 2s;
   position: absolute;
+  text-align: center;
+  width: 300px;
+  left: 50%;
+  margin-left: -150px;
   -webkit-transition: opacity 1s ease;
   transition: opacity 1s ease;
 }
@@ -637,6 +621,10 @@ p {
   }
 }
 
+#contact .describe .email > p {
+  top: 60px;
+}
+
 #contact .social {
   -ms-grid-column: 2;
       grid-column-start: 2;
@@ -644,6 +632,7 @@ p {
   -ms-grid-row: 4;
       grid-row-start: 4;
   grid-row-end: 5;
+  margin-top: 40px;
 }
 
 @media screen and (max-width: 1366px) {

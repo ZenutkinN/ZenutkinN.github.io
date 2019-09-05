@@ -98,10 +98,7 @@
     @extend .grid;
     
     .describe {
-        grid-column-start: 2;
-        grid-column-end: 6;
-        grid-row-start: 3;
-        grid-row-end: 4;
+        grid-area: 3 / 2 / 4 / 6;
         margin-bottom: 6vh;
         @media screen and (max-width: 1366px) {
             grid-column-start: 1;
@@ -133,18 +130,9 @@
                 
             }
         }
-
-        .email {
-            margin-top: 7vh;
-        }
+        
         .phoneNumber, .email {
-            @extend .flex;
-            justify-content: center;
-            @media screen and (max-width: 414px) {
-                margin-top: 7vh;
-                
-            }
-            
+            position: relative;
             &:hover p:nth-child(1){
                 opacity: 0;
                 
@@ -157,6 +145,10 @@
                 transition-property: content;
                 transition-duration: 2s;
                 position: absolute;
+                text-align: center;
+                width: 300px;
+                left: 50%;
+                margin-left: -150px;
                 transition: opacity 1s ease;
                 
                 &:nth-child(1){
@@ -172,8 +164,10 @@
                     }
                     
                 }
-            
             }
+        }
+        .email > p{
+            top: 60px;
         }
     }
     .social {
@@ -181,6 +175,7 @@
         grid-column-end: 6;
         grid-row-start: 4;
         grid-row-end: 5;
+        margin-top: 40px; 
         @media screen and (max-width: 1366px) {
             grid-column-start: 1;
             grid-column-end: 7;
