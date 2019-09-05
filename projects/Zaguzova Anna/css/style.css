@@ -90,14 +90,6 @@ p {
   margin-top: 3vh;
 }
 
-@media screen and (max-width: 768px) {
-  .nav {
-    -ms-grid-column: 2;
-        grid-column-start: 2;
-    grid-column-end: 6;
-  }
-}
-
 .nav ul {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
