@@ -84,16 +84,24 @@ p {
 }
 
 .nav {
-  /* -ms-grid-column: 2;
-  -ms-grid-column-span: 4; */
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 4;
   grid-column: 2 / 6;
   margin-top: 3vh;
 }
 
+@media screen and (max-width: 414px) {
+  .nav {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 6;
+    grid-column: 1 / 7;
+  }
+}
+
 .nav ul {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -153,6 +161,7 @@ p {
   opacity: 0;
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
+  margin: 0 40px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -164,13 +173,6 @@ p {
 .nav ul:hover .logo {
   -webkit-transform: translateX(-8vw);
           transform: translateX(-8vw);
-}
-
-@media screen and (max-width: 1366px) {
-  .nav ul:hover .logo {
-    -webkit-transform: translateX(-16vw);
-            transform: translateX(-16vw);
-  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -203,6 +205,16 @@ p {
 .nav .less1024px {
   display: none;
   margin-top: 10%;
+}
+
+.nav .less1024px a {
+  margin: 0 60px;
+}
+
+@media screen and (max-width: 414px) {
+  .nav .less1024px a {
+    margin: 0 40px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
