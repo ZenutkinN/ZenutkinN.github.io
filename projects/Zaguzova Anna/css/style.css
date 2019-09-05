@@ -532,7 +532,6 @@ p {
   -ms-grid-column: 2;
   -ms-grid-column-span: 4;
   grid-area: 3 / 2 / 4 / 6;
-  margin-bottom: 6vh;
 }
 
 @media screen and (max-width: 1366px) {
@@ -540,13 +539,7 @@ p {
     -ms-grid-column: 1;
         grid-column-start: 1;
     grid-column-end: 7;
-    margin: 0 7vw 6vh 7vw;
-  }
-}
-
-@media screen and (max-width: 414px) {
-  #contact .describe {
-    margin-bottom: 7vh;
+    margin: 0 7vw 0 7vw;
   }
 }
 
@@ -580,55 +573,30 @@ p {
 }
 
 #contact .describe .phoneNumber, #contact .describe .email {
-  position: relative;
+  margin-bottom: 20px;
 }
 
-#contact .describe .phoneNumber:hover p:nth-child(1), #contact .describe .email:hover p:nth-child(1) {
-  opacity: 0;
-}
-
-#contact .describe .phoneNumber:hover p:nth-child(2), #contact .describe .email:hover p:nth-child(2) {
-  opacity: 1;
+#contact .describe .phoneNumber :first-child, #contact .describe .email :first-child {
+  font-weight: 500;
 }
 
 #contact .describe .phoneNumber p, #contact .describe .email p {
-  font-weight: 400;
-  -webkit-transition-property: content;
-  transition-property: content;
-  -webkit-transition-duration: 2s;
-          transition-duration: 2s;
-  position: absolute;
+  margin-bottom: 0;
   text-align: center;
-  width: 300px;
-  left: 50%;
-  margin-left: -150px;
-  -webkit-transition: opacity 1s ease;
-  transition: opacity 1s ease;
+  line-height: 4vh;
+  font-size: .8rem;
 }
 
-@media screen and (max-width: 1024px) {
-  #contact .describe .phoneNumber p:nth-child(1), #contact .describe .email p:nth-child(1) {
-    opacity: 0;
+@media screen and (max-width: 768px) {
+  #contact .describe .phoneNumber p, #contact .describe .email p {
+    font-size: .6rem;
   }
 }
 
-#contact .describe .phoneNumber p:nth-child(2), #contact .describe .email p:nth-child(2) {
-  opacity: 0;
-}
-
-@media screen and (max-width: 1024px) {
-  #contact .describe .phoneNumber p:nth-child(2), #contact .describe .email p:nth-child(2) {
-    opacity: 1;
-  }
-}
-
-#contact .describe .email > p {
-  margin-top: 55px;
-}
-
-@media screen and (max-width: 414px) {
-  #contact .describe .email > p {
-    margin-top: 100px;
+@media screen and (max-width: 768px) {
+  #contact .describe .phoneNumber p, #contact .describe .email p {
+    font-size: .5rem;
+    line-height: 3vh;
   }
 }
 
@@ -639,7 +607,6 @@ p {
   -ms-grid-row: 4;
       grid-row-start: 4;
   grid-row-end: 5;
-  margin-top: 40px;
 }
 
 @media screen and (max-width: 1366px) {
