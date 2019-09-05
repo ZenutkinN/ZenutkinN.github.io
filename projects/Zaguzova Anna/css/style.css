@@ -466,7 +466,7 @@ p {
 
 @media screen and (max-width: 420px) {
   #main .centr .logo {
-    margin-bottom: 8vh;
+    margin-bottom: 10vh;
   }
 }
 
@@ -489,7 +489,7 @@ p {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 70%;
-  margin-bottom: 2vh;
+  margin-bottom: 5vh;
 }
 
 @media screen and (max-width: 420px) {
@@ -501,7 +501,6 @@ p {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin-bottom: 5vh;
   }
 }
 
@@ -624,12 +623,12 @@ p {
 }
 
 #contact .describe .email > p {
-  top: 55px;
+  margin-top: 55px;
 }
 
 @media screen and (max-width: 414px) {
   #contact .describe .email > p {
-    top: 50px;
+    margin-top: 50px;
   }
 }
 
