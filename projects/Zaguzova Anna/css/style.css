@@ -201,6 +201,11 @@ p {
 .nav .less1024px {
   display: none;
   border: 1px solid transparent;
+  text-align: center;
+}
+
+.nav .less1024px li {
+  display: inline-block;
 }
 
 .nav .less1024px a {
@@ -216,7 +221,7 @@ p {
 
 @media screen and (max-width: 1024px) {
   .nav .less1024px {
-    display: -webkit-box;
+    display: block;
   }
 }
 
