@@ -127,9 +127,15 @@ p {
   }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 414px) {
   .nav ul a {
     font-size: .5rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .nav ul a {
+    font-size: .4rem;
   }
 }
 
@@ -212,7 +218,7 @@ p {
   display: block;
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 414px) {
   .nav .less1024px a {
     margin: 100px 20px 0 20px;
   }
@@ -356,6 +362,15 @@ p {
           box-shadow: 0px 2px 8px black;
   -webkit-transform: scale(1.02);
           transform: scale(1.02);
+}
+
+@media screen and (max-width: 1024px) {
+  .tabletsHandle > a > img:hover, .works .tablets .target > a > img:hover {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 
 .horLine {
@@ -545,21 +560,21 @@ p {
 
 @media screen and (max-width: 1024px) {
   #contact .describe p {
-    font-size: .9rem;
+    font-size: .8rem;
     line-height: 1.2rem;
   }
 }
 
 @media screen and (max-width: 768px) {
   #contact .describe p {
-    font-size: .7rem;
+    font-size: .6rem;
     margin-bottom: 3vh;
   }
 }
 
 @media screen and (max-width: 414px) {
   #contact .describe p {
-    font-size: .6rem;
+    font-size: .5rem;
     line-height: 1rem;
   }
 }
@@ -751,7 +766,7 @@ p {
 
 @media screen and (max-width: 1366px) {
   .works .sidebar ul li {
-    font-size: .7rem;
+    font-size: .5rem;
   }
 }
 
@@ -785,7 +800,7 @@ p {
   margin-right: 5vw;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
   .works .tablets {
     -ms-grid-row: 4;
         grid-row-start: 4;
@@ -848,13 +863,20 @@ p {
 }
 
 .projects .nav:first-child .hiden {
-  -webkit-transform: translateX(-6vw);
-          transform: translateX(-6vw);
+  -webkit-transform: translateX(-1vw);
+          transform: translateX(-1vw);
 }
 
 .projects .nav:first-child:hover .logo {
-  -webkit-transform: translateX(-22vw);
-          transform: translateX(-22vw);
+  -webkit-transform: translateX(-12vw);
+          transform: translateX(-12vw);
+}
+
+@media screen and (max-width: 1280px) {
+  .projects .nav:first-child:hover .logo {
+    -webkit-transform: translateX(-15vw);
+            transform: translateX(-15vw);
+  }
 }
 
 .projects .nav:first-child:hover .hiden {
@@ -869,12 +891,14 @@ p {
 }
 
 .projects .sign h1 {
-  letter-spacing: .5rem;
-  font-size: 5vh;
+  letter-spacing: .2rem;
+  font-family: 'Inconsolata', monospace;
+  font-size: 1.5rem;
+  margin-top: 50px;
   margin-bottom: 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .projects .sign h1 {
     font-size: 1.2rem;
     letter-spacing: .3rem;
@@ -885,6 +909,7 @@ p {
   .projects .sign h1 {
     font-size: .7rem;
     letter-spacing: .2rem;
+    margin-top: 5px;
   }
 }
 
@@ -956,6 +981,7 @@ p {
   .projects h2 {
     margin-left: 0;
     font-size: .8rem;
+    text-align: center;
   }
 }
 

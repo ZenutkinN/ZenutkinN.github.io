@@ -94,8 +94,12 @@ p {
             @media screen and (max-width: 768px) {
                 font-size: .6rem;
             }
-            @media screen and (max-width: 360px) {
+            @media screen and (max-width: 414px) {
                 font-size: .5rem;
+                
+            }
+            @media screen and (max-width: 320px) {
+                font-size: .4rem;
                 
             }
         
@@ -160,7 +164,7 @@ p {
         a {
             margin: 100px 25px 0 25px;
             display: block;
-            @media screen and (max-width: 360px) {
+            @media screen and (max-width: 414px) {
                 margin: 100px 20px 0 20px;
             }
             
@@ -303,6 +307,10 @@ p {
             &:hover {
                 box-shadow: 0px 2px 8px black;
                 transform: scale(1.02);
+                @media screen and (max-width: 1024px) {
+                    box-shadow: none;
+                    transform: scale(1);
+                }
             }
         }
     }
