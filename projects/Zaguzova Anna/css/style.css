@@ -36,7 +36,9 @@ p {
 }
 
 .flex, .nav ul, #main, #main .head, #main .centr, #main .centr nav, #contact .describe .phoneNumber, #contact .describe .email, #contact .social > ul, .projects .gallery, .blog .news, .blog .news .article .imgBlog {
-  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -138,6 +140,7 @@ p {
   width: 100px;
   left: 50%;
   margin-left: -50px;
+  border: 11px solid transparent;
 }
 
 @media screen and (max-width: 414px) {
@@ -198,7 +201,6 @@ p {
 
 .nav .less1024px {
   display: none;
-  border: 1px solid transparent;
   text-align: center;
 }
 
