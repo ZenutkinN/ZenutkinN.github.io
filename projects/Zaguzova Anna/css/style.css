@@ -90,11 +90,11 @@ p {
   margin-top: 3vh;
 }
 
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 768px) {
   .nav {
-    -ms-grid-column: 1;
-        grid-column-start: 1;
-    grid-column-end: 7;
+    -ms-grid-column: 2;
+        grid-column-start: 2;
+    grid-column-end: 6;
   }
 }
 
@@ -146,21 +146,10 @@ p {
   margin-left: -50px;
 }
 
-@media screen and (max-width: 1366px) {
-  .nav ul .logo {
-    width: 6vw;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .nav ul .logo {
-    width: 10vw;
-  }
-}
-
 @media screen and (max-width: 414px) {
   .nav ul .logo {
-    width: 22vw;
+    width: 60px;
+    margin-left: -30px;
   }
 }
 
