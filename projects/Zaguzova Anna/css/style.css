@@ -127,9 +127,9 @@ p {
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 360px) {
   .nav ul a {
-    font-size: .4rem;
+    font-size: .5rem;
   }
 }
 
@@ -144,8 +144,8 @@ p {
 
 @media screen and (max-width: 414px) {
   .nav ul .logo {
-    width: 60px;
-    margin-left: -30px;
+    width: 80px;
+    margin-left: -40px;
   }
 }
 
@@ -208,8 +208,14 @@ p {
 }
 
 .nav .less1024px a {
-  margin: 100px 40px 0 40px;
+  margin: 100px 25px 0 25px;
   display: block;
+}
+
+@media screen and (max-width: 360px) {
+  .nav .less1024px a {
+    margin: 100px 20px 0 20px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -225,6 +231,7 @@ p {
   -ms-grid-row: 2;
       grid-row-start: 2;
   grid-row-end: 3;
+  margin: 20px 0;
 }
 
 @media screen and (max-width: 414px) {
@@ -244,27 +251,6 @@ p {
   font-size: 8vh;
   letter-spacing: 4vw;
   font-weight: 400;
-  margin: 5vh 0;
-}
-
-@media screen and (max-width: 1366px) {
-  .sign h1 {
-    font-size: 1.8rem;
-    margin: 4vh 0;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .sign h1 {
-    font-size: 1.5rem;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .sign h1 {
-    font-size: 2rem;
-    margin: 3vh 0;
-  }
 }
 
 .menuLink {

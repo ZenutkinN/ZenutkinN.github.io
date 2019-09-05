@@ -94,8 +94,8 @@ p {
             @media screen and (max-width: 768px) {
                 font-size: .6rem;
             }
-            @media screen and (max-width: 414px) {
-                font-size: .4rem;
+            @media screen and (max-width: 360px) {
+                font-size: .5rem;
                 
             }
         
@@ -109,8 +109,8 @@ p {
             left: 50%;
             margin-left: -50px;
             @media screen and (max-width: 414px) {
-                width: 60px;
-                margin-left: -30px;
+                width: 80px;
+                margin-left: -40px;
             }
             
             a img {
@@ -158,8 +158,11 @@ p {
             display: inline-block;
         }
         a {
-            margin: 100px 40px 0 40px;
+            margin: 100px 25px 0 25px;
             display: block;
+            @media screen and (max-width: 360px) {
+                margin: 100px 20px 0 20px;
+            }
             
         }
         @media screen and (max-width: 1024px) {
@@ -175,6 +178,7 @@ p {
     grid-column-end: 6;
     grid-row-start: 2;
     grid-row-end: 3;
+    margin: 20px 0;
     
     
     @media screen and (max-width: 414px) {
@@ -193,18 +197,8 @@ p {
         font-size: 8vh;
         letter-spacing: 4vw;
         font-weight: 400;
-        margin: 5vh 0;
-        @media screen and (max-width: 1366px) {
-            font-size: 1.8rem;
-            margin: 4vh 0;
-        }
-        @media screen and (max-width: 1024px) {
-            font-size: 1.5rem;
-        }
-        @media screen and (max-width: 768px) {
-            font-size: 2rem;
-            margin: 3vh 0;
-        }
+        
+        
 
         
         
