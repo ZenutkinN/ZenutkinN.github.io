@@ -105,7 +105,6 @@ p {
   list-style-type: none;
   -webkit-transform: all 1s ease;
           transform: all 1s ease;
-  margin-top: 3vh;
 }
 
 .nav ul a {
@@ -202,7 +201,8 @@ p {
 .nav .less1024px {
   display: none;
   margin-top: 10%;
-  display: -webkit-box;
+  text-align: center;
+  width: 100%;
 }
 
 .nav .less1024px a {
@@ -218,8 +218,6 @@ p {
 @media screen and (max-width: 1024px) {
   .nav .less1024px {
     display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
   }
 }
 
