@@ -589,7 +589,7 @@ p {
 
 @media screen and (max-width: 768px) {
   #contact .describe .phoneNumber p, #contact .describe .email p {
-    font-size: .6rem;
+    font-size: .7rem;
   }
 }
 
