@@ -200,17 +200,17 @@ p {
 
 .nav .less1024px {
   display: none;
-  margin-top: 50px;
   border: 1px solid transparent;
 }
 
 .nav .less1024px a {
   margin: 0 60px;
+  display: block;
 }
 
 @media screen and (max-width: 414px) {
   .nav .less1024px a {
-    margin: 0 40px;
+    margin: 50px 40px 0 40px;
   }
 }
 
