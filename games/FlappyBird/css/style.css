@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap');
+
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	background: beige;
+	border: 1px solid transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	
+}
+#wrapper {
+	position: relative;
+	
+}
+
+#canvas {
+	border-radius: 10px;
+}
+
+#score {
+	position: absolute;
+	bottom: 35px;
+	left: 35px;
+	font-size: 36px;
+	font-family: 'Amatic SC', cursive;
+	font-weight: 700;
+	color: #4F821A;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+#start {
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	left: 50%;
+	top: 50%;
+	margin: -75px 0 0 -75px;
+	background: #E9FEDB;
+	border-radius: 75px;
+	text-align: center;
+	line-height: 150px;
+	font-family: 'Amatic SC', cursive;
+	font-size: 36px;
+	color: #7CC5CE;
+	font-weight: 700;
+	box-shadow: 0 5px 10px rgba(0,0,0,0.19), 0 3px 3px rgba(0,0,0,0.23);
+	transition: opacity 0.3s ease;
+	z-index: 10;
+}
+#gameOver {
+	position: absolute;
+	box-sizing: border-box;
+	width: 150px;
+	height: 150px;
+	left: 50%;
+	top: 50%;
+	margin: -75px 0 0 -75px;
+	background: #E9FEDB;
+	border-radius: 75px;
+	text-align: center;
+	vertical-align: middle;
+	font-family: 'Amatic SC', cursive;
+	font-size: 26px;
+	color: #7CC5CE;
+	font-weight: 700;
+	box-shadow: 0 5px 10px rgba(0,0,0,0.19), 0 3px 3px rgba(0,0,0,0.23);
+	transition: opacity 0.3s ease;
+	padding: 30px;
+	line-height: 25px;
+	opacity: 0;
+}
+#gameOver > span {
+	font-size: 18px;
+}
