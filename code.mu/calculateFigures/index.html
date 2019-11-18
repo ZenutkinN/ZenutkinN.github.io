@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Расчет площади фигур онлайн</title>
+	<link rel="stylesheet" href="./css/main.css" type="text/css">
+</head>
+<body>
+	<div id="wrapper">
+		<header>
+			<div id="logo"><span>a</span><span>b</span><span>c</span></div>
+			<div>
+				<button class="showFiguresSection">Выбрать фигуру</button>
+			</div>
+		</header>
+		<section id="figuresSection" class="hidden"></section>
+		<section id="center">
+			<section id="centerHello">
+				<div>
+					<h1>Расчет фигур онлайн</h1>
+					<p>На данном сайте Вы сможете <em>расчитать характеристики геометрических фигур</em> с заданными параметрами, таких как:</p>
+					<ul>
+						<li><em>площадь</em></li>
+						<li><em>сторону</em></li>
+						<li><em>объем</em></li>
+						<li><em>угол</em></li>
+						<li><em>высоту</em></li>
+					</ul>
+					<button class="showFiguresSection">Выберите фигуру</button>
+				</div>
+			</section>
+			<section id="centerCalculate" style="display: none">
+				<div id="changeCalcWrapper"></div>
+				<div>
+					<p id="numerError" style="visibility: hidden;">Вводить можно только числа</p>
+					<p id="emptyError" style="visibility: hidden;">Поля не должны быть пустыми</p>
+					<button id="calculate">Рассичтать</button>
+					<p id="resultCalc"></p>
+				</div>
+			</section>
+		</section>
+	</div>
+	<script src="./js/canvas.js"></script>
+	<script src="./js/objects.js"></script>
+	<script src="./js/main.js"></script>
+	<script src="./js/fillFigureSection.js"></script>
+	<script src="./js/handleFigureSection.js"></script>
+	<script src="./js/handleCalcSection.js"></script>
+	<script src="./js/calc.js"></script>
+	<script src="./js/validation.js"></script>
+</body>
+</html>
