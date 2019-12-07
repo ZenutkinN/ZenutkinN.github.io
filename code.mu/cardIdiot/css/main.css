@@ -1,0 +1,1303 @@
+@import url("https://fonts.googleapis.com/css?family=Poiret+One&display=swap&subset=cyrillic");
+@font-face {
+  font-family: 'Hotel Cortes';
+  src: url(../fonts/HotelCortes.eot);
+  src: local(HotelCortes), url(../fonts/HotelCortes.ttf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background: url(../img/fon.jpg);
+  background-repeat: repeat;
+}
+
+.flex, #startSection, #endSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.font1, .buttonStyle1, #startSection #start input[type=submit], #startSection #end input[type=submit], #endSection #start input[type=submit], #endSection #end input[type=submit], #startSection #start p, #startSection #end p, #endSection #start p, #endSection #end p, #startSection #start label, #startSection #end label, #endSection #start label, #endSection #end label, #startSection #start input, #startSection #end input, #endSection #start input, #endSection #end input {
+  font-family: "Poiret One", cursive;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.font2, #gameField #cardsField #restCardsWrapper p {
+  font-family: "Poiret One", cursive;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #e7b36f;
+}
+
+.font3, .playerStyle .playerTitle, #gameField #player1 .playerTitle, #gameField #player2 .playerTitle, #gameField #player3 .playerTitle, #gameField #player4 .playerTitle, #gameField #player5 .playerTitle {
+  font-family: "Poiret One", cursive;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #e7b36f;
+}
+
+.font4, .buttonStyle2, #myPanel #controlPanel #buttonsControl button, #myPanel #controlPanel #stateConsol {
+  font-family: "Poiret One", cursive;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #e7b36f;
+}
+
+.buttonStyle1, #startSection #start input[type=submit], #startSection #end input[type=submit], #endSection #start input[type=submit], #endSection #end input[type=submit] {
+  background: #26543C;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  outline: none;
+  color: #e7b36f;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  cursor: pointer;
+}
+
+.buttonStyle1:hover, #startSection #start input:hover[type=submit], #startSection #end input:hover[type=submit], #endSection #start input:hover[type=submit], #endSection #end input:hover[type=submit] {
+  -webkit-box-shadow: 0 0 5px 0 rgba(50, 50, 50, 0.75);
+          box-shadow: 0 0 5px 0 rgba(50, 50, 50, 0.75);
+}
+
+.buttonStyle2, #myPanel #controlPanel #buttonsControl button {
+  background: #26543C;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+  color: #e7b36f;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  cursor: pointer;
+}
+
+.buttonStyle2:hover, #myPanel #controlPanel #buttonsControl button:hover {
+  -webkit-box-shadow: 0 0 5px 0 rgba(50, 50, 50, 0.75);
+          box-shadow: 0 0 5px 0 rgba(50, 50, 50, 0.75);
+}
+
+.buttonStyle2:disabled, #myPanel #controlPanel #buttonsControl button:disabled {
+  background: rgba(38, 84, 60, 0.5);
+  cursor: not-allowed;
+}
+
+.buttonStyle2:disabled:hover, #myPanel #controlPanel #buttonsControl button:disabled:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.playerStyle, #gameField #player1, #gameField #player2, #gameField #player3, #gameField #player4, #gameField #player5 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 30px;
+}
+
+.playerStyle .playerTitle, #gameField #player1 .playerTitle, #gameField #player2 .playerTitle, #gameField #player3 .playerTitle, #gameField #player4 .playerTitle, #gameField #player5 .playerTitle {
+  margin-right: 20px;
+}
+
+.playerStyle .playerCards, #gameField #player1 .playerCards, #gameField #player2 .playerCards, #gameField #player3 .playerCards, #gameField #player4 .playerCards, #gameField #player5 .playerCards {
+  border-radius: 5px;
+}
+
+.playerStyle .playerCards img, #gameField #player1 .playerCards img, #gameField #player2 .playerCards img, #gameField #player3 .playerCards img, #gameField #player4 .playerCards img, #gameField #player5 .playerCards img {
+  -webkit-box-shadow: -5px 0px 8px -3px rgba(50, 50, 50, 0.9);
+          box-shadow: -5px 0px 8px -3px rgba(50, 50, 50, 0.9);
+  border-radius: 5px;
+}
+
+.playerStyle .playerCards img:nth-child(2), #gameField #player1 .playerCards img:nth-child(2), #gameField #player2 .playerCards img:nth-child(2), #gameField #player3 .playerCards img:nth-child(2), #gameField #player4 .playerCards img:nth-child(2), #gameField #player5 .playerCards img:nth-child(2) {
+  margin-left: -85px;
+  z-index: 2;
+}
+
+.playerStyle .playerCards img:nth-child(3), #gameField #player1 .playerCards img:nth-child(3), #gameField #player2 .playerCards img:nth-child(3), #gameField #player3 .playerCards img:nth-child(3), #gameField #player4 .playerCards img:nth-child(3), #gameField #player5 .playerCards img:nth-child(3) {
+  margin-left: -85px;
+  z-index: 3;
+}
+
+.playerStyle .playerCards img:nth-child(4), #gameField #player1 .playerCards img:nth-child(4), #gameField #player2 .playerCards img:nth-child(4), #gameField #player3 .playerCards img:nth-child(4), #gameField #player4 .playerCards img:nth-child(4), #gameField #player5 .playerCards img:nth-child(4) {
+  margin-left: -85px;
+  z-index: 4;
+}
+
+.playerStyle .playerCards img:nth-child(5), #gameField #player1 .playerCards img:nth-child(5), #gameField #player2 .playerCards img:nth-child(5), #gameField #player3 .playerCards img:nth-child(5), #gameField #player4 .playerCards img:nth-child(5), #gameField #player5 .playerCards img:nth-child(5) {
+  margin-left: -85px;
+  z-index: 5;
+}
+
+.playerStyle .playerCards img:nth-child(6), #gameField #player1 .playerCards img:nth-child(6), #gameField #player2 .playerCards img:nth-child(6), #gameField #player3 .playerCards img:nth-child(6), #gameField #player4 .playerCards img:nth-child(6), #gameField #player5 .playerCards img:nth-child(6) {
+  margin-left: -85px;
+  z-index: 6;
+}
+
+.playerStyle .playerCards img:nth-child(7), #gameField #player1 .playerCards img:nth-child(7), #gameField #player2 .playerCards img:nth-child(7), #gameField #player3 .playerCards img:nth-child(7), #gameField #player4 .playerCards img:nth-child(7), #gameField #player5 .playerCards img:nth-child(7) {
+  margin-left: -85px;
+  z-index: 7;
+}
+
+.playerStyle .playerCards img:nth-child(8), #gameField #player1 .playerCards img:nth-child(8), #gameField #player2 .playerCards img:nth-child(8), #gameField #player3 .playerCards img:nth-child(8), #gameField #player4 .playerCards img:nth-child(8), #gameField #player5 .playerCards img:nth-child(8) {
+  margin-left: -85px;
+  z-index: 8;
+}
+
+.playerStyle .playerCards img:nth-child(9), #gameField #player1 .playerCards img:nth-child(9), #gameField #player2 .playerCards img:nth-child(9), #gameField #player3 .playerCards img:nth-child(9), #gameField #player4 .playerCards img:nth-child(9), #gameField #player5 .playerCards img:nth-child(9) {
+  margin-left: -85px;
+  z-index: 9;
+}
+
+.playerStyle .playerCards img:nth-child(10), #gameField #player1 .playerCards img:nth-child(10), #gameField #player2 .playerCards img:nth-child(10), #gameField #player3 .playerCards img:nth-child(10), #gameField #player4 .playerCards img:nth-child(10), #gameField #player5 .playerCards img:nth-child(10) {
+  margin-left: -85px;
+  z-index: 10;
+}
+
+.playerStyle .playerCards img:nth-child(11), #gameField #player1 .playerCards img:nth-child(11), #gameField #player2 .playerCards img:nth-child(11), #gameField #player3 .playerCards img:nth-child(11), #gameField #player4 .playerCards img:nth-child(11), #gameField #player5 .playerCards img:nth-child(11) {
+  margin-left: -85px;
+  z-index: 11;
+}
+
+.playerStyle .playerCards img:nth-child(12), #gameField #player1 .playerCards img:nth-child(12), #gameField #player2 .playerCards img:nth-child(12), #gameField #player3 .playerCards img:nth-child(12), #gameField #player4 .playerCards img:nth-child(12), #gameField #player5 .playerCards img:nth-child(12) {
+  margin-left: -85px;
+  z-index: 12;
+}
+
+.playerStyle .playerCards img:nth-child(13), #gameField #player1 .playerCards img:nth-child(13), #gameField #player2 .playerCards img:nth-child(13), #gameField #player3 .playerCards img:nth-child(13), #gameField #player4 .playerCards img:nth-child(13), #gameField #player5 .playerCards img:nth-child(13) {
+  margin-left: -85px;
+  z-index: 13;
+}
+
+.playerStyle .playerCards img:nth-child(14), #gameField #player1 .playerCards img:nth-child(14), #gameField #player2 .playerCards img:nth-child(14), #gameField #player3 .playerCards img:nth-child(14), #gameField #player4 .playerCards img:nth-child(14), #gameField #player5 .playerCards img:nth-child(14) {
+  margin-left: -85px;
+  z-index: 14;
+}
+
+.playerStyle .playerCards img:nth-child(15), #gameField #player1 .playerCards img:nth-child(15), #gameField #player2 .playerCards img:nth-child(15), #gameField #player3 .playerCards img:nth-child(15), #gameField #player4 .playerCards img:nth-child(15), #gameField #player5 .playerCards img:nth-child(15) {
+  margin-left: -85px;
+  z-index: 15;
+}
+
+.playerStyle .playerCards img:nth-child(16), #gameField #player1 .playerCards img:nth-child(16), #gameField #player2 .playerCards img:nth-child(16), #gameField #player3 .playerCards img:nth-child(16), #gameField #player4 .playerCards img:nth-child(16), #gameField #player5 .playerCards img:nth-child(16) {
+  margin-left: -85px;
+  z-index: 16;
+}
+
+.playerStyle .playerCards img:nth-child(17), #gameField #player1 .playerCards img:nth-child(17), #gameField #player2 .playerCards img:nth-child(17), #gameField #player3 .playerCards img:nth-child(17), #gameField #player4 .playerCards img:nth-child(17), #gameField #player5 .playerCards img:nth-child(17) {
+  margin-left: -85px;
+  z-index: 17;
+}
+
+.playerStyle .playerCards img:nth-child(18), #gameField #player1 .playerCards img:nth-child(18), #gameField #player2 .playerCards img:nth-child(18), #gameField #player3 .playerCards img:nth-child(18), #gameField #player4 .playerCards img:nth-child(18), #gameField #player5 .playerCards img:nth-child(18) {
+  margin-left: -85px;
+  z-index: 18;
+}
+
+.playerStyle .playerCards img:nth-child(19), #gameField #player1 .playerCards img:nth-child(19), #gameField #player2 .playerCards img:nth-child(19), #gameField #player3 .playerCards img:nth-child(19), #gameField #player4 .playerCards img:nth-child(19), #gameField #player5 .playerCards img:nth-child(19) {
+  margin-left: -85px;
+  z-index: 19;
+}
+
+.playerStyle .playerCards img:nth-child(20), #gameField #player1 .playerCards img:nth-child(20), #gameField #player2 .playerCards img:nth-child(20), #gameField #player3 .playerCards img:nth-child(20), #gameField #player4 .playerCards img:nth-child(20), #gameField #player5 .playerCards img:nth-child(20) {
+  margin-left: -85px;
+  z-index: 20;
+}
+
+.playerStyle .playerCards img:nth-child(21), #gameField #player1 .playerCards img:nth-child(21), #gameField #player2 .playerCards img:nth-child(21), #gameField #player3 .playerCards img:nth-child(21), #gameField #player4 .playerCards img:nth-child(21), #gameField #player5 .playerCards img:nth-child(21) {
+  margin-left: -85px;
+  z-index: 21;
+}
+
+.playerStyle .playerCards img:nth-child(22), #gameField #player1 .playerCards img:nth-child(22), #gameField #player2 .playerCards img:nth-child(22), #gameField #player3 .playerCards img:nth-child(22), #gameField #player4 .playerCards img:nth-child(22), #gameField #player5 .playerCards img:nth-child(22) {
+  margin-left: -85px;
+  z-index: 22;
+}
+
+.playerStyle .playerCards img:nth-child(23), #gameField #player1 .playerCards img:nth-child(23), #gameField #player2 .playerCards img:nth-child(23), #gameField #player3 .playerCards img:nth-child(23), #gameField #player4 .playerCards img:nth-child(23), #gameField #player5 .playerCards img:nth-child(23) {
+  margin-left: -85px;
+  z-index: 23;
+}
+
+.playerStyle .playerCards img:nth-child(24), #gameField #player1 .playerCards img:nth-child(24), #gameField #player2 .playerCards img:nth-child(24), #gameField #player3 .playerCards img:nth-child(24), #gameField #player4 .playerCards img:nth-child(24), #gameField #player5 .playerCards img:nth-child(24) {
+  margin-left: -85px;
+  z-index: 24;
+}
+
+.playerStyle .playerCards img:nth-child(25), #gameField #player1 .playerCards img:nth-child(25), #gameField #player2 .playerCards img:nth-child(25), #gameField #player3 .playerCards img:nth-child(25), #gameField #player4 .playerCards img:nth-child(25), #gameField #player5 .playerCards img:nth-child(25) {
+  margin-left: -85px;
+  z-index: 25;
+}
+
+.playerStyle .playerCards img:nth-child(26), #gameField #player1 .playerCards img:nth-child(26), #gameField #player2 .playerCards img:nth-child(26), #gameField #player3 .playerCards img:nth-child(26), #gameField #player4 .playerCards img:nth-child(26), #gameField #player5 .playerCards img:nth-child(26) {
+  margin-left: -85px;
+  z-index: 26;
+}
+
+.playerStyle .playerCards img:nth-child(27), #gameField #player1 .playerCards img:nth-child(27), #gameField #player2 .playerCards img:nth-child(27), #gameField #player3 .playerCards img:nth-child(27), #gameField #player4 .playerCards img:nth-child(27), #gameField #player5 .playerCards img:nth-child(27) {
+  margin-left: -85px;
+  z-index: 27;
+}
+
+.playerStyle .playerCards img:nth-child(28), #gameField #player1 .playerCards img:nth-child(28), #gameField #player2 .playerCards img:nth-child(28), #gameField #player3 .playerCards img:nth-child(28), #gameField #player4 .playerCards img:nth-child(28), #gameField #player5 .playerCards img:nth-child(28) {
+  margin-left: -85px;
+  z-index: 28;
+}
+
+.playerStyle .playerCards img:nth-child(29), #gameField #player1 .playerCards img:nth-child(29), #gameField #player2 .playerCards img:nth-child(29), #gameField #player3 .playerCards img:nth-child(29), #gameField #player4 .playerCards img:nth-child(29), #gameField #player5 .playerCards img:nth-child(29) {
+  margin-left: -85px;
+  z-index: 29;
+}
+
+.playerStyle .playerCards img:nth-child(30), #gameField #player1 .playerCards img:nth-child(30), #gameField #player2 .playerCards img:nth-child(30), #gameField #player3 .playerCards img:nth-child(30), #gameField #player4 .playerCards img:nth-child(30), #gameField #player5 .playerCards img:nth-child(30) {
+  margin-left: -85px;
+  z-index: 30;
+}
+
+.playerStyle .playerCards img:nth-child(31), #gameField #player1 .playerCards img:nth-child(31), #gameField #player2 .playerCards img:nth-child(31), #gameField #player3 .playerCards img:nth-child(31), #gameField #player4 .playerCards img:nth-child(31), #gameField #player5 .playerCards img:nth-child(31) {
+  margin-left: -85px;
+  z-index: 31;
+}
+
+.playerStyle .playerCards img:nth-child(32), #gameField #player1 .playerCards img:nth-child(32), #gameField #player2 .playerCards img:nth-child(32), #gameField #player3 .playerCards img:nth-child(32), #gameField #player4 .playerCards img:nth-child(32), #gameField #player5 .playerCards img:nth-child(32) {
+  margin-left: -85px;
+  z-index: 32;
+}
+
+.playerStyle .playerCards img:nth-child(33), #gameField #player1 .playerCards img:nth-child(33), #gameField #player2 .playerCards img:nth-child(33), #gameField #player3 .playerCards img:nth-child(33), #gameField #player4 .playerCards img:nth-child(33), #gameField #player5 .playerCards img:nth-child(33) {
+  margin-left: -85px;
+  z-index: 33;
+}
+
+.playerStyle .playerCards img:nth-child(34), #gameField #player1 .playerCards img:nth-child(34), #gameField #player2 .playerCards img:nth-child(34), #gameField #player3 .playerCards img:nth-child(34), #gameField #player4 .playerCards img:nth-child(34), #gameField #player5 .playerCards img:nth-child(34) {
+  margin-left: -85px;
+  z-index: 34;
+}
+
+.playerStyle .playerCards img:nth-child(35), #gameField #player1 .playerCards img:nth-child(35), #gameField #player2 .playerCards img:nth-child(35), #gameField #player3 .playerCards img:nth-child(35), #gameField #player4 .playerCards img:nth-child(35), #gameField #player5 .playerCards img:nth-child(35) {
+  margin-left: -85px;
+  z-index: 35;
+}
+
+.playerStyle .playerCards img:nth-child(36), #gameField #player1 .playerCards img:nth-child(36), #gameField #player2 .playerCards img:nth-child(36), #gameField #player3 .playerCards img:nth-child(36), #gameField #player4 .playerCards img:nth-child(36), #gameField #player5 .playerCards img:nth-child(36) {
+  margin-left: -85px;
+  z-index: 36;
+}
+
+.playerStyle .playerCards img:nth-child(37), #gameField #player1 .playerCards img:nth-child(37), #gameField #player2 .playerCards img:nth-child(37), #gameField #player3 .playerCards img:nth-child(37), #gameField #player4 .playerCards img:nth-child(37), #gameField #player5 .playerCards img:nth-child(37) {
+  margin-left: -85px;
+  z-index: 37;
+}
+
+.playerStyle .playerCards img:nth-child(38), #gameField #player1 .playerCards img:nth-child(38), #gameField #player2 .playerCards img:nth-child(38), #gameField #player3 .playerCards img:nth-child(38), #gameField #player4 .playerCards img:nth-child(38), #gameField #player5 .playerCards img:nth-child(38) {
+  margin-left: -85px;
+  z-index: 38;
+}
+
+.playerStyle .playerCards img:nth-child(39), #gameField #player1 .playerCards img:nth-child(39), #gameField #player2 .playerCards img:nth-child(39), #gameField #player3 .playerCards img:nth-child(39), #gameField #player4 .playerCards img:nth-child(39), #gameField #player5 .playerCards img:nth-child(39) {
+  margin-left: -85px;
+  z-index: 39;
+}
+
+.playerStyle .playerCards img:nth-child(40), #gameField #player1 .playerCards img:nth-child(40), #gameField #player2 .playerCards img:nth-child(40), #gameField #player3 .playerCards img:nth-child(40), #gameField #player4 .playerCards img:nth-child(40), #gameField #player5 .playerCards img:nth-child(40) {
+  margin-left: -85px;
+  z-index: 40;
+}
+
+.playerStyle .playerCards img:nth-child(41), #gameField #player1 .playerCards img:nth-child(41), #gameField #player2 .playerCards img:nth-child(41), #gameField #player3 .playerCards img:nth-child(41), #gameField #player4 .playerCards img:nth-child(41), #gameField #player5 .playerCards img:nth-child(41) {
+  margin-left: -85px;
+  z-index: 41;
+}
+
+.playerStyle .playerCards img:nth-child(42), #gameField #player1 .playerCards img:nth-child(42), #gameField #player2 .playerCards img:nth-child(42), #gameField #player3 .playerCards img:nth-child(42), #gameField #player4 .playerCards img:nth-child(42), #gameField #player5 .playerCards img:nth-child(42) {
+  margin-left: -85px;
+  z-index: 42;
+}
+
+.playerStyle .playerCards img:nth-child(43), #gameField #player1 .playerCards img:nth-child(43), #gameField #player2 .playerCards img:nth-child(43), #gameField #player3 .playerCards img:nth-child(43), #gameField #player4 .playerCards img:nth-child(43), #gameField #player5 .playerCards img:nth-child(43) {
+  margin-left: -85px;
+  z-index: 43;
+}
+
+.playerStyle .playerCards img:nth-child(44), #gameField #player1 .playerCards img:nth-child(44), #gameField #player2 .playerCards img:nth-child(44), #gameField #player3 .playerCards img:nth-child(44), #gameField #player4 .playerCards img:nth-child(44), #gameField #player5 .playerCards img:nth-child(44) {
+  margin-left: -85px;
+  z-index: 44;
+}
+
+.playerStyle .playerCards img:nth-child(45), #gameField #player1 .playerCards img:nth-child(45), #gameField #player2 .playerCards img:nth-child(45), #gameField #player3 .playerCards img:nth-child(45), #gameField #player4 .playerCards img:nth-child(45), #gameField #player5 .playerCards img:nth-child(45) {
+  margin-left: -85px;
+  z-index: 45;
+}
+
+.playerStyle .playerCards img:nth-child(46), #gameField #player1 .playerCards img:nth-child(46), #gameField #player2 .playerCards img:nth-child(46), #gameField #player3 .playerCards img:nth-child(46), #gameField #player4 .playerCards img:nth-child(46), #gameField #player5 .playerCards img:nth-child(46) {
+  margin-left: -85px;
+  z-index: 46;
+}
+
+.playerStyle .playerCards img:nth-child(47), #gameField #player1 .playerCards img:nth-child(47), #gameField #player2 .playerCards img:nth-child(47), #gameField #player3 .playerCards img:nth-child(47), #gameField #player4 .playerCards img:nth-child(47), #gameField #player5 .playerCards img:nth-child(47) {
+  margin-left: -85px;
+  z-index: 47;
+}
+
+.playerStyle .playerCards img:nth-child(48), #gameField #player1 .playerCards img:nth-child(48), #gameField #player2 .playerCards img:nth-child(48), #gameField #player3 .playerCards img:nth-child(48), #gameField #player4 .playerCards img:nth-child(48), #gameField #player5 .playerCards img:nth-child(48) {
+  margin-left: -85px;
+  z-index: 48;
+}
+
+.playerStyle .playerCards img:nth-child(49), #gameField #player1 .playerCards img:nth-child(49), #gameField #player2 .playerCards img:nth-child(49), #gameField #player3 .playerCards img:nth-child(49), #gameField #player4 .playerCards img:nth-child(49), #gameField #player5 .playerCards img:nth-child(49) {
+  margin-left: -85px;
+  z-index: 49;
+}
+
+.playerStyle .playerCards img:nth-child(50), #gameField #player1 .playerCards img:nth-child(50), #gameField #player2 .playerCards img:nth-child(50), #gameField #player3 .playerCards img:nth-child(50), #gameField #player4 .playerCards img:nth-child(50), #gameField #player5 .playerCards img:nth-child(50) {
+  margin-left: -85px;
+  z-index: 50;
+}
+
+.playerStyle .playerCards img:nth-child(51), #gameField #player1 .playerCards img:nth-child(51), #gameField #player2 .playerCards img:nth-child(51), #gameField #player3 .playerCards img:nth-child(51), #gameField #player4 .playerCards img:nth-child(51), #gameField #player5 .playerCards img:nth-child(51) {
+  margin-left: -85px;
+  z-index: 51;
+}
+
+.playerStyle .playerCards img:nth-child(52), #gameField #player1 .playerCards img:nth-child(52), #gameField #player2 .playerCards img:nth-child(52), #gameField #player3 .playerCards img:nth-child(52), #gameField #player4 .playerCards img:nth-child(52), #gameField #player5 .playerCards img:nth-child(52) {
+  margin-left: -85px;
+  z-index: 52;
+}
+
+.playerStyle .playerCards img:nth-child(53), #gameField #player1 .playerCards img:nth-child(53), #gameField #player2 .playerCards img:nth-child(53), #gameField #player3 .playerCards img:nth-child(53), #gameField #player4 .playerCards img:nth-child(53), #gameField #player5 .playerCards img:nth-child(53) {
+  margin-left: -85px;
+  z-index: 53;
+}
+
+.playerStyle .playerCards img:nth-child(54), #gameField #player1 .playerCards img:nth-child(54), #gameField #player2 .playerCards img:nth-child(54), #gameField #player3 .playerCards img:nth-child(54), #gameField #player4 .playerCards img:nth-child(54), #gameField #player5 .playerCards img:nth-child(54) {
+  margin-left: -85px;
+  z-index: 54;
+}
+
+.playerStyle .playerCards img:nth-child(55), #gameField #player1 .playerCards img:nth-child(55), #gameField #player2 .playerCards img:nth-child(55), #gameField #player3 .playerCards img:nth-child(55), #gameField #player4 .playerCards img:nth-child(55), #gameField #player5 .playerCards img:nth-child(55) {
+  margin-left: -85px;
+  z-index: 55;
+}
+
+.playerStyle .playerCards img:nth-child(56), #gameField #player1 .playerCards img:nth-child(56), #gameField #player2 .playerCards img:nth-child(56), #gameField #player3 .playerCards img:nth-child(56), #gameField #player4 .playerCards img:nth-child(56), #gameField #player5 .playerCards img:nth-child(56) {
+  margin-left: -85px;
+  z-index: 56;
+}
+
+.playerStyle .playerCards img:nth-child(57), #gameField #player1 .playerCards img:nth-child(57), #gameField #player2 .playerCards img:nth-child(57), #gameField #player3 .playerCards img:nth-child(57), #gameField #player4 .playerCards img:nth-child(57), #gameField #player5 .playerCards img:nth-child(57) {
+  margin-left: -85px;
+  z-index: 57;
+}
+
+.playerStyle .playerCards img:nth-child(58), #gameField #player1 .playerCards img:nth-child(58), #gameField #player2 .playerCards img:nth-child(58), #gameField #player3 .playerCards img:nth-child(58), #gameField #player4 .playerCards img:nth-child(58), #gameField #player5 .playerCards img:nth-child(58) {
+  margin-left: -85px;
+  z-index: 58;
+}
+
+.playerStyle .playerCards img:nth-child(59), #gameField #player1 .playerCards img:nth-child(59), #gameField #player2 .playerCards img:nth-child(59), #gameField #player3 .playerCards img:nth-child(59), #gameField #player4 .playerCards img:nth-child(59), #gameField #player5 .playerCards img:nth-child(59) {
+  margin-left: -85px;
+  z-index: 59;
+}
+
+.playerStyle .playerCards img:nth-child(60), #gameField #player1 .playerCards img:nth-child(60), #gameField #player2 .playerCards img:nth-child(60), #gameField #player3 .playerCards img:nth-child(60), #gameField #player4 .playerCards img:nth-child(60), #gameField #player5 .playerCards img:nth-child(60) {
+  margin-left: -85px;
+  z-index: 60;
+}
+
+.playerStyle .playerCards img:nth-child(61), #gameField #player1 .playerCards img:nth-child(61), #gameField #player2 .playerCards img:nth-child(61), #gameField #player3 .playerCards img:nth-child(61), #gameField #player4 .playerCards img:nth-child(61), #gameField #player5 .playerCards img:nth-child(61) {
+  margin-left: -85px;
+  z-index: 61;
+}
+
+.playerStyle .playerCards img:nth-child(62), #gameField #player1 .playerCards img:nth-child(62), #gameField #player2 .playerCards img:nth-child(62), #gameField #player3 .playerCards img:nth-child(62), #gameField #player4 .playerCards img:nth-child(62), #gameField #player5 .playerCards img:nth-child(62) {
+  margin-left: -85px;
+  z-index: 62;
+}
+
+.playerStyle .playerCards img:nth-child(63), #gameField #player1 .playerCards img:nth-child(63), #gameField #player2 .playerCards img:nth-child(63), #gameField #player3 .playerCards img:nth-child(63), #gameField #player4 .playerCards img:nth-child(63), #gameField #player5 .playerCards img:nth-child(63) {
+  margin-left: -85px;
+  z-index: 63;
+}
+
+.playerStyle .playerCards img:nth-child(64), #gameField #player1 .playerCards img:nth-child(64), #gameField #player2 .playerCards img:nth-child(64), #gameField #player3 .playerCards img:nth-child(64), #gameField #player4 .playerCards img:nth-child(64), #gameField #player5 .playerCards img:nth-child(64) {
+  margin-left: -85px;
+  z-index: 64;
+}
+
+.playerStyle .playerCards img:nth-child(65), #gameField #player1 .playerCards img:nth-child(65), #gameField #player2 .playerCards img:nth-child(65), #gameField #player3 .playerCards img:nth-child(65), #gameField #player4 .playerCards img:nth-child(65), #gameField #player5 .playerCards img:nth-child(65) {
+  margin-left: -85px;
+  z-index: 65;
+}
+
+.playerStyle .playerCards img:nth-child(66), #gameField #player1 .playerCards img:nth-child(66), #gameField #player2 .playerCards img:nth-child(66), #gameField #player3 .playerCards img:nth-child(66), #gameField #player4 .playerCards img:nth-child(66), #gameField #player5 .playerCards img:nth-child(66) {
+  margin-left: -85px;
+  z-index: 66;
+}
+
+.playerStyle .playerCards img:nth-child(67), #gameField #player1 .playerCards img:nth-child(67), #gameField #player2 .playerCards img:nth-child(67), #gameField #player3 .playerCards img:nth-child(67), #gameField #player4 .playerCards img:nth-child(67), #gameField #player5 .playerCards img:nth-child(67) {
+  margin-left: -85px;
+  z-index: 67;
+}
+
+.playerStyle .playerCards img:nth-child(68), #gameField #player1 .playerCards img:nth-child(68), #gameField #player2 .playerCards img:nth-child(68), #gameField #player3 .playerCards img:nth-child(68), #gameField #player4 .playerCards img:nth-child(68), #gameField #player5 .playerCards img:nth-child(68) {
+  margin-left: -85px;
+  z-index: 68;
+}
+
+.playerStyle .playerCards img:nth-child(69), #gameField #player1 .playerCards img:nth-child(69), #gameField #player2 .playerCards img:nth-child(69), #gameField #player3 .playerCards img:nth-child(69), #gameField #player4 .playerCards img:nth-child(69), #gameField #player5 .playerCards img:nth-child(69) {
+  margin-left: -85px;
+  z-index: 69;
+}
+
+.playerStyle .playerCards img:nth-child(70), #gameField #player1 .playerCards img:nth-child(70), #gameField #player2 .playerCards img:nth-child(70), #gameField #player3 .playerCards img:nth-child(70), #gameField #player4 .playerCards img:nth-child(70), #gameField #player5 .playerCards img:nth-child(70) {
+  margin-left: -85px;
+  z-index: 70;
+}
+
+.playerStyle .playerCards img:nth-child(71), #gameField #player1 .playerCards img:nth-child(71), #gameField #player2 .playerCards img:nth-child(71), #gameField #player3 .playerCards img:nth-child(71), #gameField #player4 .playerCards img:nth-child(71), #gameField #player5 .playerCards img:nth-child(71) {
+  margin-left: -85px;
+  z-index: 71;
+}
+
+.playerStyle .playerCards img:nth-child(72), #gameField #player1 .playerCards img:nth-child(72), #gameField #player2 .playerCards img:nth-child(72), #gameField #player3 .playerCards img:nth-child(72), #gameField #player4 .playerCards img:nth-child(72), #gameField #player5 .playerCards img:nth-child(72) {
+  margin-left: -85px;
+  z-index: 72;
+}
+
+.playerStyle .playerCards img:nth-child(73), #gameField #player1 .playerCards img:nth-child(73), #gameField #player2 .playerCards img:nth-child(73), #gameField #player3 .playerCards img:nth-child(73), #gameField #player4 .playerCards img:nth-child(73), #gameField #player5 .playerCards img:nth-child(73) {
+  margin-left: -85px;
+  z-index: 73;
+}
+
+.playerStyle .playerCards img:nth-child(74), #gameField #player1 .playerCards img:nth-child(74), #gameField #player2 .playerCards img:nth-child(74), #gameField #player3 .playerCards img:nth-child(74), #gameField #player4 .playerCards img:nth-child(74), #gameField #player5 .playerCards img:nth-child(74) {
+  margin-left: -85px;
+  z-index: 74;
+}
+
+.playerStyle .playerCards img:nth-child(75), #gameField #player1 .playerCards img:nth-child(75), #gameField #player2 .playerCards img:nth-child(75), #gameField #player3 .playerCards img:nth-child(75), #gameField #player4 .playerCards img:nth-child(75), #gameField #player5 .playerCards img:nth-child(75) {
+  margin-left: -85px;
+  z-index: 75;
+}
+
+.playerStyle .playerCards img:nth-child(76), #gameField #player1 .playerCards img:nth-child(76), #gameField #player2 .playerCards img:nth-child(76), #gameField #player3 .playerCards img:nth-child(76), #gameField #player4 .playerCards img:nth-child(76), #gameField #player5 .playerCards img:nth-child(76) {
+  margin-left: -85px;
+  z-index: 76;
+}
+
+.playerStyle .playerCards img:nth-child(77), #gameField #player1 .playerCards img:nth-child(77), #gameField #player2 .playerCards img:nth-child(77), #gameField #player3 .playerCards img:nth-child(77), #gameField #player4 .playerCards img:nth-child(77), #gameField #player5 .playerCards img:nth-child(77) {
+  margin-left: -85px;
+  z-index: 77;
+}
+
+.playerStyle .playerCards img:nth-child(78), #gameField #player1 .playerCards img:nth-child(78), #gameField #player2 .playerCards img:nth-child(78), #gameField #player3 .playerCards img:nth-child(78), #gameField #player4 .playerCards img:nth-child(78), #gameField #player5 .playerCards img:nth-child(78) {
+  margin-left: -85px;
+  z-index: 78;
+}
+
+.playerStyle .playerCards img:nth-child(79), #gameField #player1 .playerCards img:nth-child(79), #gameField #player2 .playerCards img:nth-child(79), #gameField #player3 .playerCards img:nth-child(79), #gameField #player4 .playerCards img:nth-child(79), #gameField #player5 .playerCards img:nth-child(79) {
+  margin-left: -85px;
+  z-index: 79;
+}
+
+.playerStyle .playerCards img:nth-child(80), #gameField #player1 .playerCards img:nth-child(80), #gameField #player2 .playerCards img:nth-child(80), #gameField #player3 .playerCards img:nth-child(80), #gameField #player4 .playerCards img:nth-child(80), #gameField #player5 .playerCards img:nth-child(80) {
+  margin-left: -85px;
+  z-index: 80;
+}
+
+.playerStyle .playerCards img:nth-child(81), #gameField #player1 .playerCards img:nth-child(81), #gameField #player2 .playerCards img:nth-child(81), #gameField #player3 .playerCards img:nth-child(81), #gameField #player4 .playerCards img:nth-child(81), #gameField #player5 .playerCards img:nth-child(81) {
+  margin-left: -85px;
+  z-index: 81;
+}
+
+.playerStyle .playerCards img:nth-child(82), #gameField #player1 .playerCards img:nth-child(82), #gameField #player2 .playerCards img:nth-child(82), #gameField #player3 .playerCards img:nth-child(82), #gameField #player4 .playerCards img:nth-child(82), #gameField #player5 .playerCards img:nth-child(82) {
+  margin-left: -85px;
+  z-index: 82;
+}
+
+.playerStyle .playerCards img:nth-child(83), #gameField #player1 .playerCards img:nth-child(83), #gameField #player2 .playerCards img:nth-child(83), #gameField #player3 .playerCards img:nth-child(83), #gameField #player4 .playerCards img:nth-child(83), #gameField #player5 .playerCards img:nth-child(83) {
+  margin-left: -85px;
+  z-index: 83;
+}
+
+.playerStyle .playerCards img:nth-child(84), #gameField #player1 .playerCards img:nth-child(84), #gameField #player2 .playerCards img:nth-child(84), #gameField #player3 .playerCards img:nth-child(84), #gameField #player4 .playerCards img:nth-child(84), #gameField #player5 .playerCards img:nth-child(84) {
+  margin-left: -85px;
+  z-index: 84;
+}
+
+.playerStyle .playerCards img:nth-child(85), #gameField #player1 .playerCards img:nth-child(85), #gameField #player2 .playerCards img:nth-child(85), #gameField #player3 .playerCards img:nth-child(85), #gameField #player4 .playerCards img:nth-child(85), #gameField #player5 .playerCards img:nth-child(85) {
+  margin-left: -85px;
+  z-index: 85;
+}
+
+.playerStyle .playerCards img:nth-child(86), #gameField #player1 .playerCards img:nth-child(86), #gameField #player2 .playerCards img:nth-child(86), #gameField #player3 .playerCards img:nth-child(86), #gameField #player4 .playerCards img:nth-child(86), #gameField #player5 .playerCards img:nth-child(86) {
+  margin-left: -85px;
+  z-index: 86;
+}
+
+.playerStyle .playerCards img:nth-child(87), #gameField #player1 .playerCards img:nth-child(87), #gameField #player2 .playerCards img:nth-child(87), #gameField #player3 .playerCards img:nth-child(87), #gameField #player4 .playerCards img:nth-child(87), #gameField #player5 .playerCards img:nth-child(87) {
+  margin-left: -85px;
+  z-index: 87;
+}
+
+.playerStyle .playerCards img:nth-child(88), #gameField #player1 .playerCards img:nth-child(88), #gameField #player2 .playerCards img:nth-child(88), #gameField #player3 .playerCards img:nth-child(88), #gameField #player4 .playerCards img:nth-child(88), #gameField #player5 .playerCards img:nth-child(88) {
+  margin-left: -85px;
+  z-index: 88;
+}
+
+.playerStyle .playerCards img:nth-child(89), #gameField #player1 .playerCards img:nth-child(89), #gameField #player2 .playerCards img:nth-child(89), #gameField #player3 .playerCards img:nth-child(89), #gameField #player4 .playerCards img:nth-child(89), #gameField #player5 .playerCards img:nth-child(89) {
+  margin-left: -85px;
+  z-index: 89;
+}
+
+.playerStyle .playerCards img:nth-child(90), #gameField #player1 .playerCards img:nth-child(90), #gameField #player2 .playerCards img:nth-child(90), #gameField #player3 .playerCards img:nth-child(90), #gameField #player4 .playerCards img:nth-child(90), #gameField #player5 .playerCards img:nth-child(90) {
+  margin-left: -85px;
+  z-index: 90;
+}
+
+.playerStyle .playerCards img:nth-child(91), #gameField #player1 .playerCards img:nth-child(91), #gameField #player2 .playerCards img:nth-child(91), #gameField #player3 .playerCards img:nth-child(91), #gameField #player4 .playerCards img:nth-child(91), #gameField #player5 .playerCards img:nth-child(91) {
+  margin-left: -85px;
+  z-index: 91;
+}
+
+.playerStyle .playerCards img:nth-child(92), #gameField #player1 .playerCards img:nth-child(92), #gameField #player2 .playerCards img:nth-child(92), #gameField #player3 .playerCards img:nth-child(92), #gameField #player4 .playerCards img:nth-child(92), #gameField #player5 .playerCards img:nth-child(92) {
+  margin-left: -85px;
+  z-index: 92;
+}
+
+.playerStyle .playerCards img:nth-child(93), #gameField #player1 .playerCards img:nth-child(93), #gameField #player2 .playerCards img:nth-child(93), #gameField #player3 .playerCards img:nth-child(93), #gameField #player4 .playerCards img:nth-child(93), #gameField #player5 .playerCards img:nth-child(93) {
+  margin-left: -85px;
+  z-index: 93;
+}
+
+.playerStyle .playerCards img:nth-child(94), #gameField #player1 .playerCards img:nth-child(94), #gameField #player2 .playerCards img:nth-child(94), #gameField #player3 .playerCards img:nth-child(94), #gameField #player4 .playerCards img:nth-child(94), #gameField #player5 .playerCards img:nth-child(94) {
+  margin-left: -85px;
+  z-index: 94;
+}
+
+.playerStyle .playerCards img:nth-child(95), #gameField #player1 .playerCards img:nth-child(95), #gameField #player2 .playerCards img:nth-child(95), #gameField #player3 .playerCards img:nth-child(95), #gameField #player4 .playerCards img:nth-child(95), #gameField #player5 .playerCards img:nth-child(95) {
+  margin-left: -85px;
+  z-index: 95;
+}
+
+.playerStyle .playerCards img:nth-child(96), #gameField #player1 .playerCards img:nth-child(96), #gameField #player2 .playerCards img:nth-child(96), #gameField #player3 .playerCards img:nth-child(96), #gameField #player4 .playerCards img:nth-child(96), #gameField #player5 .playerCards img:nth-child(96) {
+  margin-left: -85px;
+  z-index: 96;
+}
+
+.playerStyle .playerCards img:nth-child(97), #gameField #player1 .playerCards img:nth-child(97), #gameField #player2 .playerCards img:nth-child(97), #gameField #player3 .playerCards img:nth-child(97), #gameField #player4 .playerCards img:nth-child(97), #gameField #player5 .playerCards img:nth-child(97) {
+  margin-left: -85px;
+  z-index: 97;
+}
+
+.playerStyle .playerCards img:nth-child(98), #gameField #player1 .playerCards img:nth-child(98), #gameField #player2 .playerCards img:nth-child(98), #gameField #player3 .playerCards img:nth-child(98), #gameField #player4 .playerCards img:nth-child(98), #gameField #player5 .playerCards img:nth-child(98) {
+  margin-left: -85px;
+  z-index: 98;
+}
+
+.playerStyle .playerCards img:nth-child(99), #gameField #player1 .playerCards img:nth-child(99), #gameField #player2 .playerCards img:nth-child(99), #gameField #player3 .playerCards img:nth-child(99), #gameField #player4 .playerCards img:nth-child(99), #gameField #player5 .playerCards img:nth-child(99) {
+  margin-left: -85px;
+  z-index: 99;
+}
+
+.playerStyle .playerCards img:nth-child(100), #gameField #player1 .playerCards img:nth-child(100), #gameField #player2 .playerCards img:nth-child(100), #gameField #player3 .playerCards img:nth-child(100), #gameField #player4 .playerCards img:nth-child(100), #gameField #player5 .playerCards img:nth-child(100) {
+  margin-left: -85px;
+  z-index: 100;
+}
+
+#startSection, #endSection {
+  position: absolute;
+  z-index: 10000;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+#startSection #logo, #endSection #logo {
+  margin-bottom: 100px;
+}
+
+#startSection #logo h1, #endSection #logo h1 {
+  font-family: "Hotel Cortes";
+  font-size: 10rem;
+  font-weight: 100;
+  background: #e7b36f;
+  background: -webkit-gradient(linear, left top, left bottom, from(#e7b36f), to(#53380e));
+  background: linear-gradient(to bottom, #e7b36f, #53380e);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+#startSection #start, #startSection #end, #endSection #start, #endSection #end {
+  text-align: center;
+  padding: 20px;
+  background: -webkit-gradient(linear, left top, right bottom, from(#e7b36f), to(#53380e));
+  background: linear-gradient(to bottom right, #e7b36f, #53380e);
+  -webkit-box-shadow: 3px 3px 20px 1px rgba(50, 50, 50, 0.75);
+          box-shadow: 3px 3px 20px 1px rgba(50, 50, 50, 0.75);
+  border-radius: 5px;
+}
+
+#startSection #start input, #startSection #end input, #endSection #start input, #endSection #end input {
+  margin-right: 10px;
+}
+
+#startSection #start input:not(:first-child), #startSection #end input:not(:first-child), #endSection #start input:not(:first-child), #endSection #end input:not(:first-child) {
+  margin-top: 20px;
+}
+
+#startSection #start input[type=number], #startSection #end input[type=number], #endSection #start input[type=number], #endSection #end input[type=number] {
+  padding-left: 5px;
+}
+
+#endSection {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#gameField {
+  width: 100%;
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "empty1 player3 player3 empty2" "player2 cardsField cardsField player4"  "player1 cardsField cardsField player5"  "myPanel myPanel myPanel myPanel";
+  -ms-grid-columns: 1fr 290px 290px 1fr;
+      grid-template-columns: 1fr 290px 290px 1fr;
+  -ms-grid-rows: 1fr 220px 220px 1fr;
+      grid-template-rows: 1fr 220px 220px 1fr;
+}
+
+#gameField #cardsField {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: cardsField;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#gameField #cardsField #gameCardsWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: calc((101px + 10px)*3 + 10px*5 + 1px*6);
+}
+
+#gameField #cardsField #gameCardsWrapper .cardInGame {
+  width: calc(101px + 5px);
+  height: calc(151px + 5px);
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 10px;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 1px;
+  position: relative;
+}
+
+#gameField #cardsField #gameCardsWrapper .cardInGame img:nth-child(2) {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  -webkit-box-shadow: -5px 0px 8px -3px rgba(50, 50, 50, 0.9);
+          box-shadow: -5px 0px 8px -3px rgba(50, 50, 50, 0.9);
+  border-radius: 5px;
+}
+
+#gameField #cardsField #restCardsWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 20px;
+}
+
+#gameField #cardsField #restCardsWrapper div {
+  width: calc(101px + 5px);
+  height: calc(151px + 5px);
+  border: 1px solid white;
+  border-radius: 5px;
+  padding-top: 3px;
+  text-align: center;
+}
+
+#gameField #cardsField #restCardsWrapper p {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#gameField #myPanel {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: myPanel;
+}
+
+#gameField #empty1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: empty1;
+}
+
+#gameField #empty2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: empty2;
+}
+
+#gameField #player1 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: player1;
+}
+
+#gameField #player2 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: player2;
+}
+
+#gameField #player3 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: player3;
+}
+
+#gameField #player4 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+  grid-area: player4;
+}
+
+#gameField #player5 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 4;
+  grid-area: player5;
+}
+
+#myPanel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#myPanel #myCards {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#myPanel #myCards img {
+  position: relative;
+  -webkit-box-shadow: -5px 0px 8px -3px rgba(50, 50, 50, 0.9);
+          box-shadow: -5px 0px 8px -3px rgba(50, 50, 50, 0.9);
+  border-radius: 5px;
+  bottom: 0;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+#myPanel #myCards img:nth-child(2) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(3) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(4) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(5) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(6) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(7) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(8) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(9) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(10) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(11) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(12) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(13) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(14) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(15) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(16) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(17) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(18) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(19) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(20) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(21) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(22) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(23) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(24) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(25) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(26) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(27) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(28) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(29) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(30) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(31) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(32) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(33) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(34) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(35) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(36) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(37) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(38) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(39) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(40) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(41) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(42) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(43) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(44) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(45) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(46) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(47) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(48) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(49) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(50) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(51) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(52) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(53) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(54) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(55) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(56) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(57) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(58) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(59) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(60) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(61) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(62) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(63) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(64) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(65) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(66) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(67) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(68) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(69) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(70) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(71) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(72) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(73) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(74) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(75) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(76) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(77) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(78) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(79) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(80) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(81) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(82) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(83) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(84) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(85) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(86) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(87) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(88) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(89) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(90) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(91) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(92) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(93) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(94) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(95) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(96) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(97) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(98) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(99) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:nth-child(100) {
+  margin-left: -65px;
+}
+
+#myPanel #myCards img:hover {
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  bottom: 30px;
+}
+
+#myPanel #controlPanel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: -webkit-gradient(linear, left top, right bottom, from(#e7b36f), to(#53380e));
+  background: linear-gradient(to bottom right, #e7b36f, #53380e);
+  margin-left: 20px;
+  width: 250px;
+  height: 151px;
+  -webkit-box-shadow: 1px 1px 10px 0 rgba(50, 50, 50, 0.75);
+          box-shadow: 1px 1px 10px 0 rgba(50, 50, 50, 0.75);
+  border-radius: 5px;
+}
+
+#myPanel #controlPanel #stateConsol {
+  background: #26543C;
+  margin-top: 15px;
+  bottom: 0;
+  width: 90%;
+  height: 60px;
+  -webkit-box-shadow: inset 0 0 5px 0 #122e12;
+          box-shadow: inset 0 0 5px 0 #122e12;
+  border-radius: 5px;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#myPanel #controlPanel #buttonsControl {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#myPanel #controlPanel #buttonsControl button {
+  margin: 10px 10px 0;
+}
+/*# sourceMappingURL=main.css.map */

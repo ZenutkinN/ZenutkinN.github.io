@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/main.css" type="text/css">
+</head>
+<body>
+	<div id="gameWrapper">
+		<section id="endSection">
+			<div id="end">
+				<p></p>
+			</div>
+		</section>
+		<section id="startSection">
+			<div id="logo">
+				<h1>Карточная игра - Дурак!</h1>
+			</div>
+			<div id="start">
+				<form>
+					<label>Выберите количество противников <input type="number" min="1" max="5" id="numberOfPlayers" value="1"></label><br>
+					<!-- <input type="checkbox" name="flip" value="flip" id="flip"><label for="flip">Играем в подкидного?</label><br> -->
+					<!-- <input type="checkbox" name="transfer" value="transfer" id="transfer"><label for="transfer">Играем в переводного?</label><br> -->
+					<input type="submit" value="Раздать карты" id="buttonStart">
+				</form>
+			</div>
+		</section>
+		<section id="gameField">
+			<div id="cardsField">
+				<div id="gameCardsWrapper">
+					<div class="cardInGame"></div>
+					<div class="cardInGame"></div>
+					<div class="cardInGame"></div>
+					<div class="cardInGame"></div>
+					<div class="cardInGame"></div>
+					<div class="cardInGame"></div>
+				</div>
+				<div id="restCardsWrapper">
+					<div id="restCards">
+						<img src="./img/Deck.png" alt="">
+					</div>
+					<p id="trupTitle">Козырь на игру</p>
+					<div id="trumpCard">
+				
+					</div>
+					
+				</div>
+			</div>
+			<div id="myPanel">
+				<div id="myCards">
+		
+				</div>
+				<div id="controlPanel">
+					<div id="stateConsol">
+
+					</div>
+					<div id="buttonsControl">
+						<button id="makeStep" disabled>Сделать ход</button>
+						<button id="getCards" disabled>Взять карты</button>
+						<button id="hangUp" disabled>Отбой</button>
+					</div>
+				</div>
+			</div>
+			<div id="player1">
+				<p class="playerTitle"></p>
+				<div class="playerCards">
+					
+				</div>
+			</div>
+			<div id="player2">
+				<p class="playerTitle"></p>
+				<div class="playerCards">
+						
+				</div>
+			</div>
+			<div id="player3">
+				<p class="playerTitle"></p>
+				<div class="playerCards">
+					
+				</div>
+			</div>
+			<div id="player4">
+				<p class="playerTitle"></p>
+				<div class="playerCards">
+					
+				</div>
+			</div>
+			<div id="player5">
+				<p class="playerTitle"></p>
+				<div class="playerCards">
+					
+				</div>
+			</div>
+			<div id="empty1"></div>
+			<div id="empty2"></div>
+		</section>
+	</div>
+	
+	<script src="./js/main.js" type="text/javascript"></script>
+</body>
+</html>
