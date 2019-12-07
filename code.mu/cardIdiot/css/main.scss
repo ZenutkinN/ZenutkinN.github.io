@@ -1,0 +1,334 @@
+@font-face{
+	font-family: 'Hotel Cortes';
+	src: url(../fonts/HotelCortes.eot);
+	src: local(HotelCortes), url(../fonts/HotelCortes.ttf);
+}
+
+@import url('https://fonts.googleapis.com/css?family=Poiret+One&display=swap&subset=cyrillic');
+
+$first-font: 'Hotel Cortes';
+$second-font: 'Poiret One', cursive;
+$color1: #26543C;
+$color2: #e7b36f;
+$color3: rgba(38, 84, 60, 0.5);
+$card-width: 101px;
+$card-height: 151px;
+$cards-margin: 10px;
+$column-width: 290px;
+$row-height: 220px;
+
+*{
+	padding: 0;
+	margin: 0;
+}
+
+html{
+	font-size: 10px;
+}
+
+body{
+	background: url(../img/fon.jpg);
+	background-repeat: repeat;
+}
+
+.flex{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.font1{
+	font-family: $second-font;
+	font-size: 2rem;
+	font-weight: 600;
+}
+.font2{
+	font-family: $second-font;
+	font-size: 2rem;
+	font-weight: 600;
+	color: $color2;
+}
+.font3{
+	font-family: $second-font;
+	font-size: 2.5rem;
+	font-weight: 600;
+	color: $color2;
+}
+.font4{
+	font-family: $second-font;
+	font-size: 1.4rem;
+	font-weight: 600;
+	color: $color2;
+}
+
+.buttonStyle1{
+	@extend .font1;
+	background: $color1;
+	border: none;
+	padding: 10px 15px;
+	border-radius: 5px;
+	outline: none;
+	color: $color2;
+	transition: .3s ease;
+	cursor: pointer;
+	&:hover{
+		box-shadow: 0 0 5px 0 rgba(50, 50, 50, 0.75);
+	}
+}
+
+.buttonStyle2{
+	@extend .font4;
+	background: $color1;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 5px;
+	outline: none;
+	color: $color2;
+	transition: .3s ease;
+	cursor: pointer;
+	&:hover{
+		box-shadow: 0 0 5px 0 rgba(50, 50, 50, 0.75);
+	}
+	&:disabled{
+		background: $color3;
+		cursor: not-allowed;
+		&:hover{
+			box-shadow: none;
+		}
+	}
+}
+
+.playerStyle{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 30px;
+	.playerTitle{
+		@extend .font3;
+		margin-right: 20px;
+	}
+
+	.playerCards{
+		border-radius: 5px;
+		img{
+			box-shadow: -5px 0px 8px -3px rgba(50, 50, 50, 0.9);
+			border-radius: 5px;
+			@for $i from 2 through 100 {
+				&:nth-child(#{$i}) {
+					margin-left: -85px;
+					z-index: $i;
+				}
+			}
+		}
+	}
+}
+
+#startSection, #endSection{
+	position: absolute;
+	z-index: 10000;
+	width: 100%;
+	height: 100vh;
+	background: rgba($color: #000000, $alpha: .8);
+	@extend .flex;
+	transition: .5s ease;
+	#logo{
+		margin-bottom: 100px;
+
+		h1{
+			font-family: $first-font;
+			font-size: 10rem;
+			font-weight: 100;
+			background: #e7b36f;
+			background: linear-gradient(to bottom, #e7b36f, #53380e); 
+			-webkit-text-fill-color: transparent;
+			-webkit-background-clip: text;
+		}
+	}
+	#start, #end{
+		text-align: center;
+		padding: 20px;
+		background: linear-gradient(to bottom right, #e7b36f, #53380e); 
+		box-shadow: 3px 3px 20px 1px rgba(50, 50, 50, 0.75);
+		border-radius: 5px;
+		p{
+			@extend .font1;
+		}
+		label{
+			@extend .font1;
+		}
+		input {
+			@extend .font1;
+			margin-right: 10px;
+			&:not(:first-child()){
+				margin-top: 20px;
+			}
+			&[type=number] {
+				padding-left: 5px;
+			}
+			&[type=submit] {
+				@extend .buttonStyle1;
+			}
+		}
+	}
+}
+
+#endSection{
+	opacity: 0;
+	visibility: hidden;
+}
+
+#gameField{
+	width: 100%;
+	height: 100vh;
+	display: grid;
+	grid-template-areas: 
+		"empty1 player3 player3 empty2"
+		"player2 cardsField cardsField player4" 
+		"player1 cardsField cardsField player5" 
+		"myPanel myPanel myPanel myPanel";
+	grid-template-columns: 1fr $column-width $column-width 1fr;
+	grid-template-rows: 1fr $row-height $row-height 1fr;
+
+	#cardsField{
+		grid-area: cardsField;
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		#gameCardsWrapper{
+			display: flex;
+			flex-wrap: wrap;
+			width: calc((#{$card-width} + 10px)*3 + #{$cards-margin}*5 + 1px*6);
+			.cardInGame{
+				width: calc(#{$card-width} + 5px);
+				height: calc(#{$card-height} + 5px);
+				border: 1px solid white;
+				border-radius: 5px;
+				margin: $cards-margin;
+				text-align: center;
+				box-sizing: border-box;
+				padding-top: 1px;
+				position: relative;
+				img{
+					&:nth-child(2) {
+						position: absolute;
+						top: 20px;
+						left: 20px;
+						box-shadow: -5px 0px 8px -3px rgba(50, 50, 50, 0.9);
+						border-radius: 5px;
+					}	
+				}
+							
+			}
+		}
+		#restCardsWrapper{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-left: 20px;
+			div{
+				width: calc(#{$card-width} + 5px);
+				height: calc(#{$card-height} + 5px);
+				border: 1px solid white;
+				border-radius: 5px;
+				padding-top: 3px;
+				text-align: center;
+			}
+			p{
+				@extend .font2;
+				margin-top: 20px;
+				margin-bottom: 10px;
+			}
+		}
+	}
+	#myPanel{
+		grid-area: myPanel;
+	}
+	#empty1{
+		grid-area: empty1;
+	}
+	#empty2{
+		grid-area: empty2;
+	}
+	#player1{
+		grid-area: player1;
+		@extend .playerStyle;
+	}
+	#player2{
+		grid-area: player2;
+		@extend .playerStyle;
+	}
+	#player3{
+		grid-area: player3;
+		@extend .playerStyle;
+	}
+	#player4{
+		grid-area: player4;
+		@extend .playerStyle;
+	}
+	#player5{
+		grid-area: player5;
+		@extend .playerStyle;
+	}
+}
+
+#myPanel{
+	display: flex;
+	align-items: center;
+	#myCards{
+		width: 50%;
+		display: flex;
+		justify-content: flex-end;
+		img{
+			position: relative;
+			box-shadow: -5px 0px 8px -3px rgba(50, 50, 50, 0.9);
+			border-radius: 5px;
+			bottom: 0;
+			transition: .5s ease;
+			@for $i from 2 through 100 {
+				&:nth-child(#{$i}) {
+					margin-left: -65px;
+				}
+			}
+			&:hover{
+				transition: .5s ease;
+				bottom: 30px;
+			}
+		}
+	}
+
+	#controlPanel{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background: linear-gradient(to bottom right, #e7b36f, #53380e);
+		margin-left: 20px;
+		width: 250px;
+		height: $card-height;
+		box-shadow: 1px 1px 10px 0 rgba(50, 50, 50, 0.75);
+		border-radius: 5px;
+		#stateConsol{
+			background: $color1;
+			margin-top: 15px;
+			bottom: 0;
+			width: 90%;
+			height: 60px;
+			box-shadow: inset 0 0 5px 0 rgb(18, 46, 18);
+			border-radius: 5px;
+			padding: 5px;
+			box-sizing: border-box;
+			@extend .font4;
+		}
+		#buttonsControl{
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-around;
+			// flex-direction: column;
+			button{
+				margin: 10px 10px 0;
+				@extend .buttonStyle2;
+			}
+		}
+	}
+}
