@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap&subset=cyrillic");
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+.buttonStyle, #wrapper #controlSection #createElemBtn {
+  font-size: 3rem;
+  font-weight: 900;
+  font-family: "Amatic SC", cursive;
+  text-align: center;
+  outline: none;
+  background: skyblue;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+.buttonStyle:hover, #wrapper #controlSection #createElemBtn:hover {
+  color: white;
+}
+
+.fontParagraph, #wrapper #elementsSection #elementTitle, #wrapper #playfieldSection #playfieldTitle, #wrapper #controlSection #removeWrapper {
+  font-size: 3rem;
+  font-weight: 900;
+  font-family: "Amatic SC", cursive;
+  text-align: center;
+}
+
+.fontConsole, #wrapper #controlSection #consoleText {
+  font-size: 2.4rem;
+  font-weight: 900;
+  font-family: "Amatic SC", cursive;
+  text-align: center;
+  color: tomato;
+}
+
+.element {
+  border: 1px solid skyblue;
+  width: 150px;
+  margin-bottom: 20px;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 900;
+  font-family: "Amatic SC", cursive;
+  cursor: pointer;
+}
+
+.element:first-child {
+  margin-top: 20px;
+}
+
+#wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+#wrapper #elementsSection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  border-radius: 0 30px 30px 0;
+  background: skyblue;
+  width: 300px;
+}
+
+#wrapper #elementsSection #elementTitle {
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#wrapper #elementsSection #elementsWrapper {
+  background: white;
+  border-radius: 30px;
+  width: 250px;
+  overflow-y: scroll;
+  direction: rtl;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-shadow: 0 0 5px black inset;
+          box-shadow: 0 0 5px black inset;
+}
+
+#wrapper #elementsSection #elementsWrapper::-webkit-scrollbar {
+  width: 50px;
+}
+
+#wrapper #elementsSection #elementsWrapper::-webkit-scrollbar-thumb {
+  background-clip: padding-box;
+  background-color: white;
+  border: 24px solid transparent;
+}
+
+#wrapper #elementsSection #elementsWrapper:hover::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
+#wrapper #playfieldSection {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(100% - 300px);
+  height: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#wrapper #playfieldSection #playfieldTitle {
+  margin-bottom: 20px;
+}
+
+#wrapper #playfieldSection #playfieldWrapper {
+  border: 5px dotted skyblue;
+  border-radius: 30px;
+  width: 80%;
+  height: 80%;
+  position: relative;
+}
+
+#wrapper #controlSection {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: calc(100% - 300px);
+  height: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#wrapper #controlSection #removeWrapper {
+  width: 150px;
+  height: 150px;
+  border: 5px solid skyblue;
+  padding-top: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#wrapper #controlSection #consoleText {
+  width: 150px;
+}
+/*# sourceMappingURL=index.css.map */
