@@ -300,7 +300,7 @@ function (_Elements4) {
     _this4.id = 'Fire';
     _this4.title = 'Огонь';
     _this4.connectMaterial = {
-      Fire: 'Stone',
+      Earth: 'Stone',
       Air: 'Lightning',
       Water: 'Steam',
       Lightning: 'SunLight',
@@ -662,6 +662,9 @@ function () {
 
 
 ;
+// EXTERNAL MODULE: ./node_modules/querystring-es3/index.js
+var querystring_es3 = __webpack_require__(1);
+
 // CONCATENATED MODULE: ./src/modules/view.js
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -677,20 +680,21 @@ function view_defineProperties(target, props) { for (var i = 0; i < props.length
 
 function view_createClass(Constructor, protoProps, staticProps) { if (protoProps) view_defineProperties(Constructor.prototype, protoProps); if (staticProps) view_defineProperties(Constructor, staticProps); return Constructor; }
 
+
+
 var View =
 /*#__PURE__*/
 function () {
-  function View(playfieldWrapper, elementsWrapper, removeWrapper, consoleText) {
+  function View(playfieldWrapper, elementsWrapper, consoleText) {
     view_classCallCheck(this, View);
 
     this.playfieldWrapper = playfieldWrapper;
     this.elementsWrapper = elementsWrapper;
-    this.removeWrapper = removeWrapper;
     this.consoleText = consoleText;
 
     this._addCloneDropEvent(this.elementsWrapper, this.playfieldWrapper);
 
-    this._addRemoveDropEvent(this.playfieldWrapper, this.removeWrapper);
+    this.playfieldWrapper.addEventListener('mousedown', this._removeElement);
   }
 
   view_createClass(View, [{
@@ -706,27 +710,38 @@ function () {
       this._addElementsDragStartEvent(this.elementsWrapper);
     }
   }, {
-    key: "getElemsID",
-    value: function getElemsID() {
-      return _toConsumableArray(this.playfieldWrapper.children).map(function (elem) {
-        return elem.getAttribute('id');
-      });
-    }
-  }, {
     key: "addConsoleText",
     value: function addConsoleText(text) {
       this.consoleText.innerHTML = text;
     }
   }, {
-    key: "setDOMNewElement",
-    value: function setDOMNewElement(elem) {
-      this.playfieldWrapper.innerHTML = '';
+    key: "removeConnectElemDOM",
+    value: function removeConnectElemDOM(arrIdElems) {
+      var elements = _toConsumableArray(this.playfieldWrapper.children);
 
+      outer: for (var i = 0; i < arrIdElems.length; i++) {
+        for (var j = elements.length - 1; j >= 0; j--) {
+          if (elements[j].getAttribute('id') == arrIdElems[i]) {
+            this.playfieldWrapper.removeChild(elements[j]);
+            continue outer;
+          }
+
+          ;
+        }
+
+        ;
+      }
+
+      ;
+    }
+  }, {
+    key: "setDOMNewElement",
+    value: function setDOMNewElement(elem, coords) {
       var newElement = this._createDOM(elem);
 
       this.playfieldWrapper.appendChild(newElement);
 
-      this._setCoordinate(newElement, this._getCentrCoordinate(newElement));
+      this._setCoordinate(newElement, coords);
 
       this._addElementsDragStartEvent(this.playfieldWrapper);
     }
@@ -743,10 +758,16 @@ function () {
       return element;
     }
   }, {
+    key: "removeLastElemDOM",
+    value: function removeLastElemDOM() {
+      this.playfieldWrapper.removeChild(this.playfieldWrapper.lastElementChild);
+    }
+  }, {
     key: "_addElementsDragStartEvent",
     value: function _addElementsDragStartEvent(elementsWrapper) {
       var elements = _toConsumableArray(elementsWrapper.children);
 
+      var parent = this.elementsWrapper;
       elements.forEach(function (element, index) {
         element.addEventListener('dragstart', function () {
           var _event = event,
@@ -755,31 +776,50 @@ function () {
           event.dataTransfer.setData('index', index);
           event.dataTransfer.setData('offsetX', offsetX);
           event.dataTransfer.setData('offsetY', offsetY);
-          event.dataTransfer.setData('name', event.target.innerHTML);
+          event.dataTransfer.setData('id', event.target.getAttribute('id')); //Ключ isClone запоминаем для далнейшего выбора события клонирования элемента или смены координат
+
+          if (this.parentElement == parent) {
+            event.dataTransfer.setData('isClone', 'true'); //Строка хотя с одним символьным равняется true
+          } else {
+            event.dataTransfer.setData('isClone', ''); //Пустая строка равняется false
+          }
+
+          ;
         });
       });
     }
   }, {
     key: "_addCloneDropEvent",
-    value: function _addCloneDropEvent(dropWrapper) {
+    value: function _addCloneDropEvent() {
       this.playfieldWrapper.addEventListener('dragover', function () {
         event.preventDefault();
         event.dataTransfer.dropEffect = 'copy';
       });
-      this.playfieldWrapper.addEventListener('drop', this._cloneEvent.bind(this));
+      this.playfieldWrapper.addEventListener('drop', this._chooseEvent.bind(this));
+    }
+  }, {
+    key: "_chooseEvent",
+    value: function _chooseEvent() {
+      if (event.dataTransfer.getData('isClone')) {
+        this._cloneEvent();
+      } else {
+        this._changeCoordEvent();
+      }
+
+      ;
+    }
+  }, {
+    key: "_changeCoordEvent",
+    value: function _changeCoordEvent() {
+      var element = _toConsumableArray(this.playfieldWrapper.children)[event.dataTransfer.getData('index')];
+
+      this._setCoordinate(element, this._getCalcCoordinate(event, element));
     }
   }, {
     key: "_cloneEvent",
     value: function _cloneEvent() {
-      if (this._checkSameElem(event.dataTransfer.getData('name'))) {
-        return;
-      }
+      var element = _toConsumableArray(this.elementsWrapper.children)[event.dataTransfer.getData('index')];
 
-      ; // Запрещаем копирование внутри игрового поля
-
-      var arrElements = _toConsumableArray(this.elementsWrapper.children);
-
-      var element = arrElements[event.dataTransfer.getData('index')];
       var cloneElement = element.cloneNode(true);
       this.playfieldWrapper.appendChild(cloneElement);
 
@@ -792,9 +832,9 @@ function () {
     }
   }, {
     key: "_checkSameElem",
-    value: function _checkSameElem(nameElem) {
+    value: function _checkSameElem(elemId) {
       return _toConsumableArray(this.playfieldWrapper.children).some(function (elem) {
-        return elem.innerHTML === nameElem;
+        return elem.getAttribute('id') === elemId;
       });
     }
   }, {
@@ -858,48 +898,13 @@ function () {
       };
     }
   }, {
-    key: "_addRemoveDropEvent",
-    value: function _addRemoveDropEvent() {
-      this.removeWrapper.addEventListener('dragover', function () {
-        event.preventDefault();
-      });
-      this.removeWrapper.addEventListener('drop', this._removeEvent.bind(this));
-    }
-  }, {
-    key: "_removeEvent",
-    value: function _removeEvent() {
-      var elements = _toConsumableArray(this.playfieldWrapper.children);
-
-      var element = elements[event.dataTransfer.getData('index')];
-
-      if (element == undefined) {
-        return;
+    key: "_removeElement",
+    value: function _removeElement() {
+      if (event.which === 2) {
+        this.removeChild(event.target);
       }
 
       ;
-      element.parentElement.removeChild(element);
-
-      this._addElementsDragStartEvent(this.playfieldWrapper);
-
-      this.addConsoleText('');
-    }
-  }, {
-    key: "_getCentrCoordinate",
-    value: function _getCentrCoordinate(element) {
-      var _getComputedStyle3 = getComputedStyle(this.playfieldWrapper),
-          widthParent = _getComputedStyle3.width,
-          heightParent = _getComputedStyle3.height;
-
-      var _getComputedStyle4 = getComputedStyle(element),
-          widthElement = _getComputedStyle4.width,
-          heightElement = _getComputedStyle4.height;
-
-      var x = parseInt(widthParent) / 2 - parseInt(widthElement) / 2;
-      var y = parseInt(heightParent) / 2 - parseInt(heightElement) / 2;
-      return {
-        x: x,
-        y: y
-      };
     }
   }]);
 
@@ -918,70 +923,96 @@ function controller_createClass(Constructor, protoProps, staticProps) { if (prot
 var Controller =
 /*#__PURE__*/
 function () {
-  function Controller(game, view, createElemBtn) {
+  function Controller(game, view, playfieldWrapper) {
     controller_classCallCheck(this, Controller);
 
     this.game = game;
     this.view = view;
-    this.createElemBtn = createElemBtn;
+    this.playfieldWrapper = playfieldWrapper;
+    this.dragElement = {
+      element: null,
+      leftPos: 0,
+      topPos: 0
+    };
     this.view.createDOMElements(this.game.getAvaliableElems());
-    this.createElemBtn.addEventListener('click', this.gameStep.bind(this));
+    this.playfieldWrapper.addEventListener('dragstart', this._setDragElement.bind(this));
+    this.playfieldWrapper.addEventListener('drop', this.isConnectEvent.bind(this));
   }
 
   controller_createClass(Controller, [{
-    key: "gameStep",
-    value: function gameStep() {
-      this.game.setElemsInField(this.view.getElemsID());
+    key: "_setDragElement",
+    value: function _setDragElement() {
+      this.dragElement.element = event.target;
+      this.dragElement.leftPos = event.target.style.left;
+      this.dragElement.topPos = event.target.style.top;
+    }
+  }, {
+    key: "isConnectEvent",
+    value: function isConnectEvent() {
+      if (event.target.getAttribute('class') === 'element') {
+        this._gameStep();
+      }
 
-      if (this.checkNumElements()) {
-        var newElement = this.game.getNewElement();
+      ;
+    }
+  }, {
+    key: "_gameStep",
+    value: function _gameStep() {
+      this.game.setElemsInField(this._getIdConnectElements());
+      var newElement = this.game.getNewElement();
 
-        if (newElement !== undefined) {
-          if (this.game.checkSameElem(newElement)) {
-            this.view.setDOMNewElement(newElement);
-          } else {
-            this.game.setElemInAvaliable(newElement);
-            this.view.createDOMElements(this.game.getAvaliableElems());
-            this.view.setDOMNewElement(newElement);
-            this.view.addConsoleText('Вы создали элемент "' + newElement.title + '"');
-          }
-
-          ;
+      if (newElement !== undefined) {
+        if (this.game.checkSameElem(newElement)) {
+          this.view.removeConnectElemDOM(this._getIdConnectElements());
+          this.view.setDOMNewElement(newElement, this._getCoord());
         } else {
-          this.errorNewElems();
+          this.game.setElemInAvaliable(newElement);
+          this.view.removeConnectElemDOM(this._getIdConnectElements());
+          this.view.createDOMElements(this.game.getAvaliableElems());
+          this.view.setDOMNewElement(newElement, this._getCoord());
+          this.view.addConsoleText('Вы создали элемент "' + newElement.title + '"');
         }
 
         ;
       } else {
-        this.errorNumElems();
+        this.errorNewElems();
+
+        if (event.dataTransfer.getData('isClone')) {
+          this.view.removeLastElemDOM();
+        } else {
+          this._setPrevCord();
+        }
+
+        ;
       }
 
       ;
     }
   }, {
-    key: "checkNumElements",
-    value: function checkNumElements() {
-      return this.game.getNumFieldElems() === 2;
+    key: "_getIdConnectElements",
+    value: function _getIdConnectElements() {
+      var idFirstElement = event.target.getAttribute('id');
+      var idSecondElement = event.dataTransfer.getData('id');
+      return [idFirstElement, idSecondElement];
     }
   }, {
-    key: "errorNumElems",
-    value: function errorNumElems() {
-      var numElems = this.game.getNumFieldElems();
-
-      if (numElems === 0) {
-        this.view.addConsoleText('Добавьте элементы в игровое поле');
-      } else if (numElems < 2) {
-        this.view.addConsoleText('Добавьте еще один элемент.');
-      } else {
-        this.view.addConsoleText('Элементов должно быть два. Удалите лишние.');
-      }
-
-      ;
+    key: "_setPrevCord",
+    value: function _setPrevCord() {
+      this.dragElement.element.style.left = this.dragElement.leftPos;
+      this.dragElement.element.style.top = this.dragElement.topPos;
     }
   }, {
     key: "errorNewElems",
     value: function errorNewElems() {
-      this.view.addConsoleText('Соединение недоступно. Попробуйте другие элемнты');
+      this.view.addConsoleText('Соединение недоступно. Попробуйте другие элементы');
+    }
+  }, {
+    key: "_getCoord",
+    value: function _getCoord() {
+      return {
+        x: parseInt(event.target.style.left),
+        y: parseInt(event.target.style.top)
+      };
     }
   }]);
 
@@ -997,13 +1028,205 @@ function () {
 
 var playfieldWrapper = document.getElementById('playfieldWrapper');
 var elementsWrapper = document.getElementById('elementsWrapper');
-var removeWrapper = document.getElementById('removeWrapper');
-var createElemBtn = document.getElementById('createElemBtn');
 var consoleText = document.getElementById('consoleText');
 var src_elements = new Elements();
 var game = new Game(src_elements);
-var view = new View(playfieldWrapper, elementsWrapper, removeWrapper, consoleText);
-var controller = new Controller(game, view, createElemBtn);
+var view = new View(playfieldWrapper, elementsWrapper, consoleText);
+var controller = new Controller(game, view, playfieldWrapper);
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.decode = exports.parse = __webpack_require__(2);
+exports.encode = exports.stringify = __webpack_require__(3);
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+// If obj.hasOwnProperty has been overridden, then calling
+// obj.hasOwnProperty(prop) will break.
+// See: https://github.com/joyent/node/issues/1707
+function hasOwnProperty(obj, prop) {
+  return Object.prototype.hasOwnProperty.call(obj, prop);
+}
+
+module.exports = function(qs, sep, eq, options) {
+  sep = sep || '&';
+  eq = eq || '=';
+  var obj = {};
+
+  if (typeof qs !== 'string' || qs.length === 0) {
+    return obj;
+  }
+
+  var regexp = /\+/g;
+  qs = qs.split(sep);
+
+  var maxKeys = 1000;
+  if (options && typeof options.maxKeys === 'number') {
+    maxKeys = options.maxKeys;
+  }
+
+  var len = qs.length;
+  // maxKeys <= 0 means that we should not limit keys count
+  if (maxKeys > 0 && len > maxKeys) {
+    len = maxKeys;
+  }
+
+  for (var i = 0; i < len; ++i) {
+    var x = qs[i].replace(regexp, '%20'),
+        idx = x.indexOf(eq),
+        kstr, vstr, k, v;
+
+    if (idx >= 0) {
+      kstr = x.substr(0, idx);
+      vstr = x.substr(idx + 1);
+    } else {
+      kstr = x;
+      vstr = '';
+    }
+
+    k = decodeURIComponent(kstr);
+    v = decodeURIComponent(vstr);
+
+    if (!hasOwnProperty(obj, k)) {
+      obj[k] = v;
+    } else if (isArray(obj[k])) {
+      obj[k].push(v);
+    } else {
+      obj[k] = [obj[k], v];
+    }
+  }
+
+  return obj;
+};
+
+var isArray = Array.isArray || function (xs) {
+  return Object.prototype.toString.call(xs) === '[object Array]';
+};
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+var stringifyPrimitive = function(v) {
+  switch (typeof v) {
+    case 'string':
+      return v;
+
+    case 'boolean':
+      return v ? 'true' : 'false';
+
+    case 'number':
+      return isFinite(v) ? v : '';
+
+    default:
+      return '';
+  }
+};
+
+module.exports = function(obj, sep, eq, name) {
+  sep = sep || '&';
+  eq = eq || '=';
+  if (obj === null) {
+    obj = undefined;
+  }
+
+  if (typeof obj === 'object') {
+    return map(objectKeys(obj), function(k) {
+      var ks = encodeURIComponent(stringifyPrimitive(k)) + eq;
+      if (isArray(obj[k])) {
+        return map(obj[k], function(v) {
+          return ks + encodeURIComponent(stringifyPrimitive(v));
+        }).join(sep);
+      } else {
+        return ks + encodeURIComponent(stringifyPrimitive(obj[k]));
+      }
+    }).join(sep);
+
+  }
+
+  if (!name) return '';
+  return encodeURIComponent(stringifyPrimitive(name)) + eq +
+         encodeURIComponent(stringifyPrimitive(obj));
+};
+
+var isArray = Array.isArray || function (xs) {
+  return Object.prototype.toString.call(xs) === '[object Array]';
+};
+
+function map (xs, f) {
+  if (xs.map) return xs.map(f);
+  var res = [];
+  for (var i = 0; i < xs.length; i++) {
+    res.push(f(xs[i], i));
+  }
+  return res;
+}
+
+var objectKeys = Object.keys || function (obj) {
+  var res = [];
+  for (var key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) res.push(key);
+  }
+  return res;
+};
+
 
 /***/ })
 /******/ ]);
