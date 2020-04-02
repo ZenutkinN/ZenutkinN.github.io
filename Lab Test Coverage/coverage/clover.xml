@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1585828014451" clover="3.2.0">
+  <project timestamp="1585828014451" name="All files">
+    <metrics statements="100" coveredstatements="98" conditionals="33" coveredconditionals="31" methods="44" coveredmethods="42" elements="177" coveredelements="171" complexity="0" loc="100" ncloc="100" packages="1" files="3" classes="3"/>
+    <file name="Matrix.js" path="C:\Users\ZenyutkinN\Documents\My\Master education\2 semester\Software quality\Lab-Unit-Testing\Matrix.js">
+      <metrics statements="60" coveredstatements="58" conditionals="24" coveredconditionals="22" methods="22" coveredmethods="20"/>
+      <line num="1" count="8" type="stmt"/>
+      <line num="2" count="8" type="stmt"/>
+      <line num="4" count="8" type="stmt"/>
+      <line num="13" count="49" type="stmt"/>
+      <line num="22" count="7" type="cond" truecount="2" falsecount="0"/>
+      <line num="24" count="3" type="stmt"/>
+      <line num="25" count="5" type="stmt"/>
+      <line num="27" count="22" type="stmt"/>
+      <line num="30" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="32" count="2" type="stmt"/>
+      <line num="41" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="42" count="1" type="stmt"/>
+      <line num="44" count="2" type="stmt"/>
+      <line num="45" count="4" type="stmt"/>
+      <line num="47" count="10" type="stmt"/>
+      <line num="50" count="2" type="stmt"/>
+      <line num="59" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="61" count="10" type="stmt"/>
+      <line num="63" count="2" type="stmt"/>
+      <line num="73" count="5" type="stmt"/>
+      <line num="75" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="76" count="3" type="stmt"/>
+      <line num="80" count="2" type="stmt"/>
+      <line num="82" count="2" type="stmt"/>
+      <line num="83" count="5" type="stmt"/>
+      <line num="84" count="5" type="stmt"/>
+      <line num="85" count="10" type="stmt"/>
+      <line num="86" count="10" type="stmt"/>
+      <line num="87" count="26" type="stmt"/>
+      <line num="89" count="10" type="stmt"/>
+      <line num="91" count="5" type="stmt"/>
+      <line num="94" count="2" type="stmt"/>
+      <line num="102" count="4" type="stmt"/>
+      <line num="104" count="4" type="stmt"/>
+      <line num="105" count="8" type="stmt"/>
+      <line num="107" count="8" type="stmt"/>
+      <line num="108" count="21" type="stmt"/>
+      <line num="111" count="8" type="stmt"/>
+      <line num="114" count="3" type="stmt"/>
+      <line num="128" count="9" type="cond" truecount="5" falsecount="0"/>
+      <line num="129" count="4" type="stmt"/>
+      <line num="132" count="13" type="stmt"/>
+      <line num="134" count="5" type="stmt"/>
+      <line num="146" count="2" type="cond" truecount="5" falsecount="0"/>
+      <line num="148" count="1" type="stmt"/>
+      <line num="152" count="10" type="stmt"/>
+      <line num="153" count="24" type="stmt"/>
+      <line num="154" count="22" type="stmt"/>
+      <line num="156" count="22" type="stmt"/>
+      <line num="159" count="8" type="stmt"/>
+      <line num="160" count="18" type="cond" truecount="2" falsecount="0"/>
+      <line num="165" count="4" type="stmt"/>
+      <line num="167" count="4" type="stmt"/>
+      <line num="169" count="4" type="stmt"/>
+      <line num="170" count="8" type="stmt"/>
+      <line num="173" count="4" type="stmt"/>
+      <line num="177" count="8" type="stmt"/>
+      <line num="180" count="8" type="stmt"/>
+      <line num="185" count="0" type="stmt"/>
+      <line num="186" count="0" type="cond" truecount="0" falsecount="2"/>
+    </file>
+    <file name="Parser.js" path="C:\Users\ZenyutkinN\Documents\My\Master education\2 semester\Software quality\Lab-Unit-Testing\Parser.js">
+      <metrics statements="17" coveredstatements="17" conditionals="9" coveredconditionals="9" methods="1" coveredmethods="1"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="9" count="8" type="cond" truecount="2" falsecount="0"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="13" count="7" type="cond" truecount="5" falsecount="0"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="30" count="2" type="stmt"/>
+      <line num="32" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="33" count="1" type="stmt"/>
+      <line num="36" count="1" type="stmt"/>
+      <line num="40" count="1" type="stmt"/>
+    </file>
+    <file name="Token.js" path="C:\Users\ZenyutkinN\Documents\My\Master education\2 semester\Software quality\Lab-Unit-Testing\Token.js">
+      <metrics statements="23" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="21" coveredmethods="21"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="35" count="1" type="stmt"/>
+      <line num="39" count="1" type="stmt"/>
+      <line num="43" count="1" type="stmt"/>
+      <line num="47" count="1" type="stmt"/>
+      <line num="51" count="1" type="stmt"/>
+      <line num="55" count="1" type="stmt"/>
+      <line num="61" count="1" type="stmt"/>
+      <line num="62" count="1" type="stmt"/>
+      <line num="68" count="1" type="stmt"/>
+      <line num="74" count="1" type="stmt"/>
+      <line num="80" count="1" type="stmt"/>
+      <line num="86" count="1" type="stmt"/>
+      <line num="92" count="1" type="stmt"/>
+      <line num="98" count="1" type="stmt"/>
+      <line num="102" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
