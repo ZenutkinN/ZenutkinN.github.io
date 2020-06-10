@@ -1,0 +1,26 @@
+digraph "oper_t"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="oper_t",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Реализация операций"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="cycleoperwhile",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcycleoperwhile.html",tooltip="Реализация while."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="eqoper",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classeqoper.html",tooltip="Реализация операции присваивания"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="funccalloper",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classfunccalloper.html",tooltip="Реализация вызова функции, содержащейся в выражении"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="ifoper",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classifoper.html",tooltip="Реализация if."];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="initfunc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classinitfunc.html",tooltip="Реализация операции инициализации функции"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="initvariable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classinitvariable.html",tooltip="Реализация инициализации переменных"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="printoper",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classprintoper.html",tooltip="Реализация операции вывода"];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="returnexp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classreturnexp.html",tooltip="Реализация операции return."];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="scanoper",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classscanoper.html",tooltip="Реализация операции ввода"];
+}
